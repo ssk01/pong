@@ -97,9 +97,10 @@ def main():
 
     optimizer = optim.RMSprop(model.parameters(), lr=LEARNING_RATE, alpha=0.99)
 
-    # CPU copy for fast per-step inference
+    # CPU copy for fast per-step inference, compiled for speed
     model_cpu = PongCNN()
     model_cpu.load_state_dict(model.state_dict())
+    model_cpu = torch.compile(model_cpu)
 
     env = gym.make("ALE/Pong-v5")
     observation, _ = env.reset()
@@ -170,8 +171,7 @@ def main():
             if episode_number % BATCH_SIZE == 0:
                 optimizer.step()
                 optimizer.zero_grad()
-                for p_cpu, p_gpu in zip(model_cpu.parameters(), model.parameters()):
-                    p_cpu.data.copy_(p_gpu.data.cpu())
+                model_cpu._orig_mod.load_state_dict(model.state_dict())
 
                 elapsed = time.time() - t_start
                 eps_per_sec = BATCH_SIZE / elapsed if elapsed > 0 else 0
