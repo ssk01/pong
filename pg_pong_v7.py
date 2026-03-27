@@ -97,10 +97,8 @@ def main():
 
     optimizer = optim.RMSprop(model.parameters(), lr=LEARNING_RATE, alpha=0.99)
 
-    # CPU copy for fast per-step inference, compiled for speed
-    model_cpu = PongCNN()
-    model_cpu.load_state_dict(model.state_dict())
-    model_cpu = torch.compile(model_cpu)
+    # For CNN, GPU inference is worth it (unlike small FC network)
+    # No CPU copy needed — inference and training both on GPU
 
     env = gym.make("ALE/Pong-v5")
     observation, _ = env.reset()
@@ -125,10 +123,10 @@ def main():
         x = cur_x - prev_x if prev_x is not None else np.zeros((80, 80), dtype=np.float32)
         prev_x = cur_x
 
-        # CPU inference: (1, 1, 80, 80)
+        # GPU inference: CNN is heavy enough to benefit from GPU
         with torch.no_grad():
-            x_tensor = torch.from_numpy(x).unsqueeze(0).unsqueeze(0)
-            aprob = model_cpu(x_tensor).item()
+            x_tensor = torch.from_numpy(x).unsqueeze(0).unsqueeze(0).to(DEVICE)
+            aprob = model(x_tensor).item()
 
         if np.random.random() < aprob:
             action, y = 2, 1.0
@@ -171,7 +169,7 @@ def main():
             if episode_number % BATCH_SIZE == 0:
                 optimizer.step()
                 optimizer.zero_grad()
-                model_cpu._orig_mod.load_state_dict(model.state_dict())
+                pass  # no CPU model to sync — inference on GPU
 
                 elapsed = time.time() - t_start
                 eps_per_sec = BATCH_SIZE / elapsed if elapsed > 0 else 0
