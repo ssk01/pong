@@ -4,3 +4,4 @@ train_log*.csv
 train_output*.log
 *.png
 __pycache__/
+replay_data/
