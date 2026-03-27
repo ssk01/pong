@@ -1,0 +1,6 @@
+save*.p
+save*.pt
+train_log*.csv
+train_output*.log
+*.png
+__pycache__/
