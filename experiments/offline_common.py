@@ -65,36 +65,42 @@ def iter_episodes_from_batch(batch_path):
 
 
 def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
-    """Train on one batch file (100 episodes). Returns avg loss and episode count."""
-    total_loss = 0.0
+    """Train on one batch file (100 episodes). Batches all steps for one forward+backward."""
+    # collect all steps from this batch file
+    all_xs, all_actions, all_disc = [], [], []
     ep_count = 0
 
     for ep in iter_episodes_from_batch(batch_path):
         if filter_fn and not filter_fn(ep):
             continue
-
-        xs = torch.from_numpy(ep["xs"])
-        actions = torch.from_numpy(ep["actions"]).float()
         disc_r = ep["discounted_rewards"].copy()
         disc_r -= disc_r.mean()
         std = disc_r.std()
         if std > 0:
             disc_r /= std
-        disc_tensor = torch.from_numpy(disc_r.astype(np.float32))
-
-        probs = model(xs).squeeze()
-        log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
-        loss = -(log_prob * disc_tensor).sum()
-
-        optimizer.zero_grad()
-        loss.backward()
-        nn.utils.clip_grad_norm_(model.parameters(), 0.5)
-        optimizer.step()
-
-        total_loss += loss.item()
+        all_xs.append(ep["xs"])
+        all_actions.append(ep["actions"])
+        all_disc.append(disc_r)
         ep_count += 1
 
-    return total_loss / max(ep_count, 1), ep_count
+    if ep_count == 0:
+        return 0.0, 0
+
+    # one batched forward + backward for entire batch file
+    xs = torch.from_numpy(np.vstack(all_xs))
+    actions = torch.from_numpy(np.concatenate(all_actions)).float()
+    disc_tensor = torch.from_numpy(np.concatenate(all_disc).astype(np.float32))
+
+    probs = model(xs).squeeze()
+    log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
+    loss = -(log_prob * disc_tensor).mean()
+
+    optimizer.zero_grad()
+    loss.backward()
+    nn.utils.clip_grad_norm_(model.parameters(), 0.5)
+    optimizer.step()
+
+    return loss.item(), ep_count
 
 
 def train_streaming(model, optimizer, csv_writer, max_epochs=5, label="",
