@@ -68,9 +68,11 @@ def iter_episodes_from_batch(batch_path):
         offset += n
 
 
+MAX_STEPS_PER_UPDATE = 4096  # limit forward pass size to prevent OOM
+
+
 def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
-    """Train on one batch file (100 episodes). Batches all steps for one forward+backward."""
-    # collect all steps from this batch file
+    """Train on one batch file. Splits into chunks of MAX_STEPS_PER_UPDATE to prevent OOM."""
     all_xs, all_actions, all_disc = [], [], []
     ep_count = 0
 
@@ -90,21 +92,37 @@ def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
     if ep_count == 0:
         return 0.0, 0
 
-    # one batched forward + backward for entire batch file
-    xs = torch.from_numpy(np.vstack(all_xs))
-    actions = torch.from_numpy(np.concatenate(all_actions)).float()
-    disc_tensor = torch.from_numpy(np.concatenate(all_disc).astype(np.float32))
+    xs_np = np.vstack(all_xs)
+    act_np = np.concatenate(all_actions)
+    disc_np = np.concatenate(all_disc).astype(np.float32)
+    total = len(xs_np)
 
-    probs = model(xs).squeeze()
-    log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
-    loss = -(log_prob * disc_tensor).mean()
+    # free lists immediately
+    del all_xs, all_actions, all_disc
 
-    optimizer.zero_grad()
-    loss.backward()
-    nn.utils.clip_grad_norm_(model.parameters(), 0.5)
-    optimizer.step()
+    total_loss = 0.0
+    n_chunks = 0
 
-    return loss.item(), ep_count
+    for start in range(0, total, MAX_STEPS_PER_UPDATE):
+        end = min(start + MAX_STEPS_PER_UPDATE, total)
+        xs = torch.from_numpy(xs_np[start:end])
+        actions = torch.from_numpy(act_np[start:end]).float()
+        disc_tensor = torch.from_numpy(disc_np[start:end])
+
+        probs = model(xs).squeeze()
+        log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
+        loss = -(log_prob * disc_tensor).mean()
+
+        optimizer.zero_grad()
+        loss.backward()
+        nn.utils.clip_grad_norm_(model.parameters(), 0.5)
+        optimizer.step()
+
+        total_loss += loss.item()
+        n_chunks += 1
+
+    del xs_np, act_np, disc_np
+    return total_loss / max(n_chunks, 1), ep_count
 
 
 def train_streaming(model, optimizer, csv_writer, max_epochs=3, label="",
