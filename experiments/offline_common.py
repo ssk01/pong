@@ -69,24 +69,67 @@ def iter_episodes_from_batch(batch_path):
     gc.collect()
 
 
+MINI_BATCH = 2048
+
+
 def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
-    """Train on one batch file. Process each episode independently — zero accumulation."""
-    total_loss = 0.0
-    ep_count = 0
+    """Train on one batch file using mini-batches of raw steps. Fast."""
+    data = np.load(batch_path, mmap_mode='r')
+    num_steps = np.array(data["num_steps"])
+    total_rewards = np.array(data["total_rewards"])
 
-    for ep in iter_episodes_from_batch(batch_path):
-        if filter_fn and not filter_fn(ep):
+    # figure out which episodes to include
+    offsets = np.concatenate([[0], np.cumsum(num_steps)])
+    include_mask = np.ones(len(num_steps), dtype=bool)
+    if filter_fn:
+        for i in range(len(num_steps)):
+            if not filter_fn({"total_reward": float(total_rewards[i])}):
+                include_mask[i] = False
+
+    # collect indices of included steps
+    step_indices = []
+    disc_values = []
+    for i in range(len(num_steps)):
+        if not include_mask[i]:
             continue
-
-        disc_r = ep["discounted_rewards"].copy()
+        start, end = int(offsets[i]), int(offsets[i+1])
+        step_indices.append(np.arange(start, end))
+        # compute discounted rewards for this episode
+        rewards = np.array(data["all_rewards"][start:end])
+        disc_r = np.zeros_like(rewards)
+        running = 0.0
+        for t in reversed(range(len(rewards))):
+            if rewards[t] != 0:
+                running = 0.0
+            running = running * 0.99 + rewards[t]
+            disc_r[t] = running
         disc_r -= disc_r.mean()
         std = disc_r.std()
         if std > 0:
             disc_r /= std
+        disc_values.append(disc_r)
 
-        xs = torch.from_numpy(ep["xs"])
-        actions = torch.from_numpy(ep["actions"]).float()
-        disc_tensor = torch.from_numpy(disc_r.astype(np.float32))
+    if not step_indices:
+        del data
+        return 0.0, 0
+
+    all_indices = np.concatenate(step_indices)
+    all_disc = np.concatenate(disc_values).astype(np.float32)
+    ep_count = int(include_mask.sum())
+    total = len(all_indices)
+
+    # shuffle and train in mini-batches
+    perm = np.random.permutation(total)
+    total_loss = 0.0
+    n_batches = 0
+
+    for start in range(0, total, MINI_BATCH):
+        idx = perm[start:start + MINI_BATCH]
+        raw_idx = all_indices[idx]
+
+        xs = torch.from_numpy(np.array(data["all_xs"][raw_idx], dtype=np.float32))
+        actions = torch.from_numpy(np.array(data["all_actions"][raw_idx])).float()
+        disc_tensor = torch.from_numpy(all_disc[idx])
 
         probs = model(xs).squeeze()
         log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
@@ -98,9 +141,11 @@ def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
         optimizer.step()
 
         total_loss += loss.item()
-        ep_count += 1
+        n_batches += 1
 
-    return total_loss / max(ep_count, 1), ep_count
+    del data
+    gc.collect()
+    return total_loss / max(n_batches, 1), ep_count
 
 
 def train_streaming(model, optimizer, csv_writer, max_epochs=3, label="",
