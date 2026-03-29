@@ -26,13 +26,17 @@ class PongPolicy(nn.Module):
         return torch.sigmoid(self.fc2(torch.relu(self.fc1(x))))
 
 
-def get_batch_files():
-    """Return sorted list of batch file paths."""
-    return sorted([
+def get_batch_files(last_n=50):
+    """Return sorted list of batch file paths. Only use last_n files to keep it manageable."""
+    all_files = sorted([
         os.path.join(REPLAY_DIR, f)
         for f in os.listdir(REPLAY_DIR)
         if f.startswith("batch_") and f.endswith(".npz")
     ])
+    if last_n and last_n < len(all_files):
+        print(f"Using last {last_n} of {len(all_files)} batch files")
+        return all_files[-last_n:]
+    return all_files
 
 
 def load_index():
@@ -103,7 +107,7 @@ def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
     return loss.item(), ep_count
 
 
-def train_streaming(model, optimizer, csv_writer, max_epochs=5, label="",
+def train_streaming(model, optimizer, csv_writer, max_epochs=3, label="",
                     batch_order_fn=None, filter_fn=None):
     """Train model by streaming through batch files. Never loads all data at once."""
     batch_files = get_batch_files()

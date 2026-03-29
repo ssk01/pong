@@ -1,0 +1,615 @@
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+PPO | 4 envs | 128 steps | 4 epochs | clip=0.2
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+  [PPO update] steps: 512 | fps: 2625 | policy_loss: -0.0066 | value_loss: 0.1325 | entropy: 0.6928 | running_mean: N/A
+  [PPO update] steps: 1024 | fps: 2640 | policy_loss: -0.0034 | value_loss: 0.2075 | entropy: 0.6919 | running_mean: N/A
+  [PPO update] steps: 1536 | fps: 2573 | policy_loss: -0.0029 | value_loss: 0.1712 | entropy: 0.6910 | running_mean: N/A
+  [PPO update] steps: 2048 | fps: 2669 | policy_loss: -0.0039 | value_loss: 0.1736 | entropy: 0.6904 | running_mean: N/A
+  [PPO update] steps: 2560 | fps: 2817 | policy_loss: -0.0041 | value_loss: 0.1594 | entropy: 0.6887 | running_mean: N/A
+  [PPO update] steps: 3072 | fps: 2838 | policy_loss: -0.0035 | value_loss: 0.1501 | entropy: 0.6879 | running_mean: N/A
+ep 1 (env 2) reward: -21 | running mean: -21.00
+ep 2 (env 3) reward: -21 | running mean: -21.00
+  [PPO update] steps: 3584 | fps: 2858 | policy_loss: -0.0049 | value_loss: 0.1473 | entropy: 0.6872 | running_mean: -21.00
+ep 3 (env 0) reward: -21 | running mean: -21.00
+  [PPO update] steps: 4096 | fps: 2808 | policy_loss: -0.0058 | value_loss: 0.1443 | entropy: 0.6854 | running_mean: -21.00
+  [PPO update] steps: 4608 | fps: 2817 | policy_loss: -0.0054 | value_loss: 0.1331 | entropy: 0.6818 | running_mean: -21.00
+ep 4 (env 1) reward: -20 | running mean: -20.99
+  [PPO update] steps: 5120 | fps: 2910 | policy_loss: -0.0059 | value_loss: 0.1244 | entropy: 0.6798 | running_mean: -20.99
+  [PPO update] steps: 5632 | fps: 2992 | policy_loss: -0.0077 | value_loss: 0.1278 | entropy: 0.6766 | running_mean: -20.99
+  [PPO update] steps: 6144 | fps: 3069 | policy_loss: -0.0070 | value_loss: 0.1137 | entropy: 0.6706 | running_mean: -20.99
+ep 5 (env 3) reward: -21 | running mean: -20.99
+  [PPO update] steps: 6656 | fps: 3131 | policy_loss: -0.0048 | value_loss: 0.1192 | entropy: 0.6649 | running_mean: -20.99
+  [PPO update] steps: 7168 | fps: 3192 | policy_loss: -0.0055 | value_loss: 0.1037 | entropy: 0.6642 | running_mean: -20.99
+ep 6 (env 0) reward: -21 | running mean: -20.99
+ep 7 (env 2) reward: -21 | running mean: -20.99
+  [PPO update] steps: 7680 | fps: 3242 | policy_loss: -0.0055 | value_loss: 0.0852 | entropy: 0.6652 | running_mean: -20.99
+  [PPO update] steps: 8192 | fps: 3282 | policy_loss: -0.0061 | value_loss: 0.1095 | entropy: 0.6607 | running_mean: -20.99
+  [PPO update] steps: 8704 | fps: 3310 | policy_loss: -0.0077 | value_loss: 0.1026 | entropy: 0.6594 | running_mean: -20.99
+ep 8 (env 1) reward: -21 | running mean: -20.99
+  [PPO update] steps: 9216 | fps: 3332 | policy_loss: -0.0076 | value_loss: 0.0874 | entropy: 0.6575 | running_mean: -20.99
+  [PPO update] steps: 9728 | fps: 3348 | policy_loss: -0.0064 | value_loss: 0.1190 | entropy: 0.6540 | running_mean: -20.99
+  [PPO update] steps: 10240 | fps: 3257 | policy_loss: -0.0057 | value_loss: 0.0997 | entropy: 0.6531 | running_mean: -20.99
+  [PPO update] steps: 10752 | fps: 3188 | policy_loss: -0.0103 | value_loss: 0.1355 | entropy: 0.6423 | running_mean: -20.99
+ep 9 (env 3) reward: -21 | running mean: -20.99
+  [PPO update] steps: 11264 | fps: 3209 | policy_loss: -0.0084 | value_loss: 0.1022 | entropy: 0.6487 | running_mean: -20.99
+ep 10 (env 2) reward: -20 | running mean: -20.98
+ep 11 (env 0) reward: -20 | running mean: -20.97
+  [PPO update] steps: 11776 | fps: 3228 | policy_loss: -0.0076 | value_loss: 0.0925 | entropy: 0.6493 | running_mean: -20.97
+  [PPO update] steps: 12288 | fps: 3255 | policy_loss: -0.0088 | value_loss: 0.0981 | entropy: 0.6548 | running_mean: -20.97
+ep 12 (env 1) reward: -21 | running mean: -20.97
+  [PPO update] steps: 12800 | fps: 3145 | policy_loss: -0.0073 | value_loss: 0.0841 | entropy: 0.6541 | running_mean: -20.97
+  [PPO update] steps: 13312 | fps: 3132 | policy_loss: -0.0072 | value_loss: 0.1152 | entropy: 0.6500 | running_mean: -20.97
+  [PPO update] steps: 13824 | fps: 3088 | policy_loss: -0.0075 | value_loss: 0.0682 | entropy: 0.6470 | running_mean: -20.97
+  [PPO update] steps: 14336 | fps: 3050 | policy_loss: -0.0080 | value_loss: 0.0855 | entropy: 0.6420 | running_mean: -20.97
+  [PPO update] steps: 14848 | fps: 3022 | policy_loss: -0.0075 | value_loss: 0.0732 | entropy: 0.6420 | running_mean: -20.97
+ep 13 (env 2) reward: -20 | running mean: -20.96
+  [PPO update] steps: 15360 | fps: 3009 | policy_loss: -0.0091 | value_loss: 0.0904 | entropy: 0.6345 | running_mean: -20.96
+ep 14 (env 3) reward: -21 | running mean: -20.96
+ep 15 (env 0) reward: -21 | running mean: -20.96
+ep 16 (env 1) reward: -21 | running mean: -20.96
+  [PPO update] steps: 15872 | fps: 2969 | policy_loss: -0.0054 | value_loss: 0.1114 | entropy: 0.6401 | running_mean: -20.96
+  [PPO update] steps: 16384 | fps: 2954 | policy_loss: -0.0140 | value_loss: 0.1023 | entropy: 0.6302 | running_mean: -20.96
+  [PPO update] steps: 16896 | fps: 2976 | policy_loss: -0.0107 | value_loss: 0.0808 | entropy: 0.6307 | running_mean: -20.96
+  [PPO update] steps: 17408 | fps: 3002 | policy_loss: -0.0099 | value_loss: 0.0858 | entropy: 0.6360 | running_mean: -20.96
+  [PPO update] steps: 17920 | fps: 3032 | policy_loss: -0.0113 | value_loss: 0.1172 | entropy: 0.6372 | running_mean: -20.96
+  [PPO update] steps: 18432 | fps: 3053 | policy_loss: -0.0098 | value_loss: 0.0827 | entropy: 0.6366 | running_mean: -20.96
+  [PPO update] steps: 18944 | fps: 3075 | policy_loss: -0.0092 | value_loss: 0.0669 | entropy: 0.6372 | running_mean: -20.96
+  [PPO update] steps: 19456 | fps: 3098 | policy_loss: -0.0116 | value_loss: 0.0841 | entropy: 0.6324 | running_mean: -20.96
+ep 17 (env 2) reward: -21 | running mean: -20.96
+  [PPO update] steps: 19968 | fps: 3115 | policy_loss: -0.0103 | value_loss: 0.1346 | entropy: 0.6311 | running_mean: -20.96
+ep 18 (env 1) reward: -21 | running mean: -20.96
+  [PPO update] steps: 20480 | fps: 3132 | policy_loss: -0.0113 | value_loss: 0.0800 | entropy: 0.6181 | running_mean: -20.96
+ep 19 (env 3) reward: -20 | running mean: -20.95
+ep 20 (env 0) reward: -17 | running mean: -20.91
+  [PPO update] steps: 20992 | fps: 3146 | policy_loss: -0.0096 | value_loss: 0.0766 | entropy: 0.6159 | running_mean: -20.91
+  [PPO update] steps: 21504 | fps: 3162 | policy_loss: -0.0083 | value_loss: 0.0616 | entropy: 0.5965 | running_mean: -20.91
+  [PPO update] steps: 22016 | fps: 3150 | policy_loss: -0.0122 | value_loss: 0.0709 | entropy: 0.6111 | running_mean: -20.91
+  [PPO update] steps: 22528 | fps: 3114 | policy_loss: -0.0084 | value_loss: 0.0774 | entropy: 0.5968 | running_mean: -20.91
+  [PPO update] steps: 23040 | fps: 3123 | policy_loss: -0.0129 | value_loss: 0.0570 | entropy: 0.6012 | running_mean: -20.91
+  [PPO update] steps: 23552 | fps: 3137 | policy_loss: -0.0140 | value_loss: 0.1032 | entropy: 0.5984 | running_mean: -20.91
+  [PPO update] steps: 24064 | fps: 3117 | policy_loss: -0.0105 | value_loss: 0.0812 | entropy: 0.5848 | running_mean: -20.91
+  [PPO update] steps: 24576 | fps: 3092 | policy_loss: -0.0119 | value_loss: 0.0694 | entropy: 0.5887 | running_mean: -20.91
+ep 21 (env 1) reward: -20 | running mean: -20.90
+ep 22 (env 2) reward: -20 | running mean: -20.90
+  [PPO update] steps: 25088 | fps: 3075 | policy_loss: -0.0115 | value_loss: 0.0847 | entropy: 0.5828 | running_mean: -20.90
+  [PPO update] steps: 25600 | fps: 3054 | policy_loss: -0.0110 | value_loss: 0.0615 | entropy: 0.5877 | running_mean: -20.90
+ep 23 (env 0) reward: -20 | running mean: -20.89
+ep 24 (env 3) reward: -21 | running mean: -20.89
+  [PPO update] steps: 26112 | fps: 3036 | policy_loss: -0.0121 | value_loss: 0.0879 | entropy: 0.5841 | running_mean: -20.89
+  [PPO update] steps: 26624 | fps: 3013 | policy_loss: -0.0089 | value_loss: 0.0935 | entropy: 0.5729 | running_mean: -20.89
+  [PPO update] steps: 27136 | fps: 2983 | policy_loss: -0.0085 | value_loss: 0.0671 | entropy: 0.5890 | running_mean: -20.89
+  [PPO update] steps: 27648 | fps: 2967 | policy_loss: -0.0119 | value_loss: 0.0758 | entropy: 0.5949 | running_mean: -20.89
+  [PPO update] steps: 28160 | fps: 2984 | policy_loss: -0.0111 | value_loss: 0.0492 | entropy: 0.5974 | running_mean: -20.89
+  [PPO update] steps: 28672 | fps: 2998 | policy_loss: -0.0094 | value_loss: 0.0952 | entropy: 0.5994 | running_mean: -20.89
+ep 25 (env 1) reward: -19 | running mean: -20.87
+  [PPO update] steps: 29184 | fps: 3012 | policy_loss: -0.0109 | value_loss: 0.0776 | entropy: 0.6009 | running_mean: -20.87
+ep 26 (env 0) reward: -21 | running mean: -20.87
+ep 27 (env 3) reward: -20 | running mean: -20.86
+  [PPO update] steps: 29696 | fps: 3022 | policy_loss: -0.0085 | value_loss: 0.0837 | entropy: 0.5974 | running_mean: -20.86
+ep 28 (env 2) reward: -21 | running mean: -20.86
+  [PPO update] steps: 30208 | fps: 3030 | policy_loss: -0.0114 | value_loss: 0.0556 | entropy: 0.5828 | running_mean: -20.86
+  [PPO update] steps: 30720 | fps: 3042 | policy_loss: -0.0095 | value_loss: 0.0659 | entropy: 0.5957 | running_mean: -20.86
+  [PPO update] steps: 31232 | fps: 3053 | policy_loss: -0.0122 | value_loss: 0.0609 | entropy: 0.5975 | running_mean: -20.86
+  [PPO update] steps: 31744 | fps: 3062 | policy_loss: -0.0102 | value_loss: 0.0325 | entropy: 0.6121 | running_mean: -20.86
+  [PPO update] steps: 32256 | fps: 3074 | policy_loss: -0.0098 | value_loss: 0.1349 | entropy: 0.5996 | running_mean: -20.86
+ep 29 (env 1) reward: -20 | running mean: -20.85
+  [PPO update] steps: 32768 | fps: 3078 | policy_loss: -0.0123 | value_loss: 0.0806 | entropy: 0.5918 | running_mean: -20.85
+ep 30 (env 3) reward: -21 | running mean: -20.86
+  [PPO update] steps: 33280 | fps: 3041 | policy_loss: -0.0149 | value_loss: 0.1066 | entropy: 0.5914 | running_mean: -20.86
+ep 31 (env 0) reward: -19 | running mean: -20.84
+  [PPO update] steps: 33792 | fps: 3038 | policy_loss: -0.0115 | value_loss: 0.0939 | entropy: 0.5893 | running_mean: -20.84
+  [PPO update] steps: 34304 | fps: 3025 | policy_loss: -0.0111 | value_loss: 0.0967 | entropy: 0.5918 | running_mean: -20.84
+  [PPO update] steps: 34816 | fps: 3035 | policy_loss: -0.0139 | value_loss: 0.0855 | entropy: 0.5952 | running_mean: -20.84
+ep 32 (env 2) reward: -18 | running mean: -20.81
+  [PPO update] steps: 35328 | fps: 3044 | policy_loss: -0.0093 | value_loss: 0.0719 | entropy: 0.5938 | running_mean: -20.81
+  [PPO update] steps: 35840 | fps: 3052 | policy_loss: -0.0111 | value_loss: 0.0933 | entropy: 0.5926 | running_mean: -20.81
+  [PPO update] steps: 36352 | fps: 3054 | policy_loss: -0.0096 | value_loss: 0.0869 | entropy: 0.5853 | running_mean: -20.81
+  [PPO update] steps: 36864 | fps: 3030 | policy_loss: -0.0153 | value_loss: 0.0929 | entropy: 0.5971 | running_mean: -20.81
+  [PPO update] steps: 37376 | fps: 3008 | policy_loss: -0.0100 | value_loss: 0.0562 | entropy: 0.5848 | running_mean: -20.81
+ep 33 (env 0) reward: -20 | running mean: -20.80
+ep 34 (env 3) reward: -19 | running mean: -20.78
+ep 35 (env 1) reward: -20 | running mean: -20.78
+  [PPO update] steps: 37888 | fps: 2996 | policy_loss: -0.0089 | value_loss: 0.0868 | entropy: 0.5948 | running_mean: -20.78
+  [PPO update] steps: 38400 | fps: 3007 | policy_loss: -0.0132 | value_loss: 0.0679 | entropy: 0.5692 | running_mean: -20.78
+  [PPO update] steps: 38912 | fps: 2995 | policy_loss: -0.0095 | value_loss: 0.0842 | entropy: 0.5760 | running_mean: -20.78
+  [PPO update] steps: 39424 | fps: 2977 | policy_loss: -0.0108 | value_loss: 0.0803 | entropy: 0.5785 | running_mean: -20.78
+  [PPO update] steps: 39936 | fps: 2987 | policy_loss: -0.0141 | value_loss: 0.0861 | entropy: 0.5974 | running_mean: -20.78
+ep 36 (env 2) reward: -18 | running mean: -20.75
+  [PPO update] steps: 40448 | fps: 2996 | policy_loss: -0.0098 | value_loss: 0.0877 | entropy: 0.5811 | running_mean: -20.75
+  [PPO update] steps: 40960 | fps: 3003 | policy_loss: -0.0124 | value_loss: 0.0903 | entropy: 0.5574 | running_mean: -20.75
+  [PPO update] steps: 41472 | fps: 3001 | policy_loss: -0.0133 | value_loss: 0.0702 | entropy: 0.5833 | running_mean: -20.75
+  [PPO update] steps: 41984 | fps: 2995 | policy_loss: -0.0126 | value_loss: 0.1100 | entropy: 0.5679 | running_mean: -20.75
+ep 37 (env 3) reward: -20 | running mean: -20.74
+ep 38 (env 1) reward: -19 | running mean: -20.72
+  [PPO update] steps: 42496 | fps: 3004 | policy_loss: -0.0120 | value_loss: 0.0582 | entropy: 0.5706 | running_mean: -20.72
+ep 39 (env 0) reward: -19 | running mean: -20.71
+  [PPO update] steps: 43008 | fps: 3012 | policy_loss: -0.0076 | value_loss: 0.0771 | entropy: 0.5641 | running_mean: -20.71
+  [PPO update] steps: 43520 | fps: 3021 | policy_loss: -0.0081 | value_loss: 0.1118 | entropy: 0.5615 | running_mean: -20.71
+  [PPO update] steps: 44032 | fps: 3029 | policy_loss: -0.0093 | value_loss: 0.0711 | entropy: 0.5563 | running_mean: -20.71
+  [PPO update] steps: 44544 | fps: 3037 | policy_loss: -0.0086 | value_loss: 0.0853 | entropy: 0.5649 | running_mean: -20.71
+  [PPO update] steps: 45056 | fps: 3036 | policy_loss: -0.0153 | value_loss: 0.1011 | entropy: 0.5583 | running_mean: -20.71
+ep 40 (env 2) reward: -20 | running mean: -20.70
+  [PPO update] steps: 45568 | fps: 3015 | policy_loss: -0.0098 | value_loss: 0.0950 | entropy: 0.5592 | running_mean: -20.70
+ep 41 (env 3) reward: -19 | running mean: -20.68
+  [PPO update] steps: 46080 | fps: 3019 | policy_loss: -0.0094 | value_loss: 0.0618 | entropy: 0.5658 | running_mean: -20.68
+  [PPO update] steps: 46592 | fps: 3027 | policy_loss: -0.0152 | value_loss: 0.0866 | entropy: 0.5659 | running_mean: -20.68
+  [PPO update] steps: 47104 | fps: 3035 | policy_loss: -0.0136 | value_loss: 0.0731 | entropy: 0.5783 | running_mean: -20.68
+ep 42 (env 0) reward: -21 | running mean: -20.68
+ep 43 (env 1) reward: -17 | running mean: -20.65
+  [PPO update] steps: 47616 | fps: 3040 | policy_loss: -0.0088 | value_loss: 0.0712 | entropy: 0.5794 | running_mean: -20.65
+  [PPO update] steps: 48128 | fps: 3021 | policy_loss: -0.0124 | value_loss: 0.0544 | entropy: 0.5689 | running_mean: -20.65
+  [PPO update] steps: 48640 | fps: 3008 | policy_loss: -0.0141 | value_loss: 0.0561 | entropy: 0.5614 | running_mean: -20.65
+  [PPO update] steps: 49152 | fps: 2988 | policy_loss: -0.0095 | value_loss: 0.0934 | entropy: 0.5379 | running_mean: -20.65
+ep 44 (env 2) reward: -21 | running mean: -20.65
+  [PPO update] steps: 49664 | fps: 2992 | policy_loss: -0.0150 | value_loss: 0.1034 | entropy: 0.5406 | running_mean: -20.65
+  [PPO update] steps: 50176 | fps: 2998 | policy_loss: -0.0100 | value_loss: 0.0674 | entropy: 0.5511 | running_mean: -20.65
+ep 45 (env 3) reward: -20 | running mean: -20.64
+  [PPO update] steps: 50688 | fps: 2991 | policy_loss: -0.0105 | value_loss: 0.0926 | entropy: 0.5314 | running_mean: -20.64
+  [PPO update] steps: 51200 | fps: 2974 | policy_loss: -0.0106 | value_loss: 0.0686 | entropy: 0.5523 | running_mean: -20.64
+ep 46 (env 0) reward: -19 | running mean: -20.63
+  [PPO update] steps: 51712 | fps: 2971 | policy_loss: -0.0074 | value_loss: 0.0617 | entropy: 0.5677 | running_mean: -20.63
+  [PPO update] steps: 52224 | fps: 2978 | policy_loss: -0.0109 | value_loss: 0.0888 | entropy: 0.5610 | running_mean: -20.63
+ep 47 (env 1) reward: -20 | running mean: -20.62
+  [PPO update] steps: 52736 | fps: 2987 | policy_loss: -0.0112 | value_loss: 0.0562 | entropy: 0.5402 | running_mean: -20.62
+  [PPO update] steps: 53248 | fps: 2994 | policy_loss: -0.0151 | value_loss: 0.1044 | entropy: 0.5312 | running_mean: -20.62
+  [PPO update] steps: 53760 | fps: 3003 | policy_loss: -0.0097 | value_loss: 0.0607 | entropy: 0.5293 | running_mean: -20.62
+  [PPO update] steps: 54272 | fps: 3011 | policy_loss: -0.0129 | value_loss: 0.0629 | entropy: 0.5552 | running_mean: -20.62
+ep 48 (env 3) reward: -21 | running mean: -20.63
+ep 49 (env 2) reward: -19 | running mean: -20.61
+  [PPO update] steps: 54784 | fps: 3019 | policy_loss: -0.0119 | value_loss: 0.1036 | entropy: 0.5400 | running_mean: -20.61
+  [PPO update] steps: 55296 | fps: 3027 | policy_loss: -0.0129 | value_loss: 0.0659 | entropy: 0.5599 | running_mean: -20.61
+  [PPO update] steps: 55808 | fps: 3034 | policy_loss: -0.0131 | value_loss: 0.0771 | entropy: 0.5479 | running_mean: -20.61
+  [PPO update] steps: 56320 | fps: 3040 | policy_loss: -0.0136 | value_loss: 0.0532 | entropy: 0.5471 | running_mean: -20.61
+ep 50 (env 0) reward: -19 | running mean: -20.59
+  [PPO update] steps: 56832 | fps: 3045 | policy_loss: -0.0139 | value_loss: 0.0711 | entropy: 0.5321 | running_mean: -20.59
+  [PPO update] steps: 57344 | fps: 3049 | policy_loss: -0.0104 | value_loss: 0.0803 | entropy: 0.5347 | running_mean: -20.59
+ep 51 (env 1) reward: -20 | running mean: -20.59
+  [PPO update] steps: 57856 | fps: 3046 | policy_loss: -0.0155 | value_loss: 0.1067 | entropy: 0.5207 | running_mean: -20.59
+  [PPO update] steps: 58368 | fps: 3031 | policy_loss: -0.0096 | value_loss: 0.0779 | entropy: 0.5122 | running_mean: -20.59
+ep 52 (env 2) reward: -20 | running mean: -20.58
+  [PPO update] steps: 58880 | fps: 3032 | policy_loss: -0.0120 | value_loss: 0.0513 | entropy: 0.5251 | running_mean: -20.58
+  [PPO update] steps: 59392 | fps: 3037 | policy_loss: -0.0117 | value_loss: 0.0911 | entropy: 0.4989 | running_mean: -20.58
+ep 53 (env 3) reward: -18 | running mean: -20.56
+  [PPO update] steps: 59904 | fps: 3022 | policy_loss: -0.0107 | value_loss: 0.0776 | entropy: 0.5050 | running_mean: -20.56
+  [PPO update] steps: 60416 | fps: 3012 | policy_loss: -0.0078 | value_loss: 0.1224 | entropy: 0.5102 | running_mean: -20.56
+  [PPO update] steps: 60928 | fps: 2997 | policy_loss: -0.0161 | value_loss: 0.0645 | entropy: 0.5092 | running_mean: -20.56
+  [PPO update] steps: 61440 | fps: 2994 | policy_loss: -0.0094 | value_loss: 0.0391 | entropy: 0.5202 | running_mean: -20.56
+ep 54 (env 0) reward: -18 | running mean: -20.53
+  [PPO update] steps: 61952 | fps: 2989 | policy_loss: -0.0084 | value_loss: 0.1067 | entropy: 0.5165 | running_mean: -20.53
+  [PPO update] steps: 62464 | fps: 2995 | policy_loss: -0.0133 | value_loss: 0.0728 | entropy: 0.5050 | running_mean: -20.53
+ep 55 (env 2) reward: -20 | running mean: -20.52
+  [PPO update] steps: 62976 | fps: 2985 | policy_loss: -0.0094 | value_loss: 0.1549 | entropy: 0.4911 | running_mean: -20.52
+  [PPO update] steps: 63488 | fps: 2977 | policy_loss: -0.0095 | value_loss: 0.0764 | entropy: 0.4901 | running_mean: -20.52
+  [PPO update] steps: 64000 | fps: 2985 | policy_loss: -0.0095 | value_loss: 0.0863 | entropy: 0.5103 | running_mean: -20.52
+ep 56 (env 3) reward: -18 | running mean: -20.50
+  [PPO update] steps: 64512 | fps: 2992 | policy_loss: -0.0118 | value_loss: 0.0830 | entropy: 0.4915 | running_mean: -20.50
+ep 57 (env 1) reward: -17 | running mean: -20.46
+  [PPO update] steps: 65024 | fps: 2999 | policy_loss: -0.0110 | value_loss: 0.0616 | entropy: 0.5116 | running_mean: -20.46
+  [PPO update] steps: 65536 | fps: 3005 | policy_loss: -0.0141 | value_loss: 0.0839 | entropy: 0.5046 | running_mean: -20.46
+  [PPO update] steps: 66048 | fps: 3012 | policy_loss: -0.0102 | value_loss: 0.0698 | entropy: 0.4895 | running_mean: -20.46
+  [PPO update] steps: 66560 | fps: 3018 | policy_loss: -0.0146 | value_loss: 0.0789 | entropy: 0.4994 | running_mean: -20.46
+  [PPO update] steps: 67072 | fps: 3024 | policy_loss: -0.0143 | value_loss: 0.1061 | entropy: 0.5099 | running_mean: -20.46
+ep 58 (env 2) reward: -19 | running mean: -20.45
+  [PPO update] steps: 67584 | fps: 3029 | policy_loss: -0.0124 | value_loss: 0.0647 | entropy: 0.4975 | running_mean: -20.45
+ep 59 (env 0) reward: -19 | running mean: -20.44
+  [PPO update] steps: 68096 | fps: 3033 | policy_loss: -0.0108 | value_loss: 0.0951 | entropy: 0.4889 | running_mean: -20.44
+  [PPO update] steps: 68608 | fps: 3037 | policy_loss: -0.0115 | value_loss: 0.0656 | entropy: 0.4776 | running_mean: -20.44
+  [PPO update] steps: 69120 | fps: 3041 | policy_loss: -0.0092 | value_loss: 0.0798 | entropy: 0.4998 | running_mean: -20.44
+  [PPO update] steps: 69632 | fps: 3040 | policy_loss: -0.0117 | value_loss: 0.0711 | entropy: 0.4874 | running_mean: -20.44
+  [PPO update] steps: 70144 | fps: 3024 | policy_loss: -0.0092 | value_loss: 0.0822 | entropy: 0.4963 | running_mean: -20.44
+ep 60 (env 1) reward: -17 | running mean: -20.40
+  [PPO update] steps: 70656 | fps: 3026 | policy_loss: -0.0144 | value_loss: 0.0815 | entropy: 0.4911 | running_mean: -20.40
+ep 61 (env 3) reward: -18 | running mean: -20.38
+  [PPO update] steps: 71168 | fps: 3029 | policy_loss: -0.0125 | value_loss: 0.0623 | entropy: 0.5157 | running_mean: -20.38
+  [PPO update] steps: 71680 | fps: 3017 | policy_loss: -0.0090 | value_loss: 0.0983 | entropy: 0.4842 | running_mean: -20.38
+  [PPO update] steps: 72192 | fps: 3013 | policy_loss: -0.0136 | value_loss: 0.0988 | entropy: 0.4615 | running_mean: -20.38
+  [PPO update] steps: 72704 | fps: 3014 | policy_loss: -0.0129 | value_loss: 0.0781 | entropy: 0.4717 | running_mean: -20.38
+ep 62 (env 2) reward: -18 | running mean: -20.35
+ep 63 (env 0) reward: -18 | running mean: -20.33
+  [PPO update] steps: 73216 | fps: 3011 | policy_loss: -0.0140 | value_loss: 0.0488 | entropy: 0.4670 | running_mean: -20.33
+  [PPO update] steps: 73728 | fps: 3001 | policy_loss: -0.0125 | value_loss: 0.0986 | entropy: 0.4595 | running_mean: -20.33
+  [PPO update] steps: 74240 | fps: 3004 | policy_loss: -0.0091 | value_loss: 0.0850 | entropy: 0.4535 | running_mean: -20.33
+  [PPO update] steps: 74752 | fps: 3004 | policy_loss: -0.0130 | value_loss: 0.0850 | entropy: 0.4498 | running_mean: -20.33
+  [PPO update] steps: 75264 | fps: 2999 | policy_loss: -0.0168 | value_loss: 0.0787 | entropy: 0.4416 | running_mean: -20.33
+  [PPO update] steps: 75776 | fps: 2997 | policy_loss: -0.0159 | value_loss: 0.0590 | entropy: 0.4370 | running_mean: -20.33
+  [PPO update] steps: 76288 | fps: 3003 | policy_loss: -0.0120 | value_loss: 0.0703 | entropy: 0.4536 | running_mean: -20.33
+ep 64 (env 3) reward: -19 | running mean: -20.32
+ep 65 (env 1) reward: -18 | running mean: -20.29
+  [PPO update] steps: 76800 | fps: 3008 | policy_loss: -0.0158 | value_loss: 0.0596 | entropy: 0.4690 | running_mean: -20.29
+  [PPO update] steps: 77312 | fps: 3012 | policy_loss: -0.0112 | value_loss: 0.0744 | entropy: 0.4311 | running_mean: -20.29
+ep 66 (env 2) reward: -18 | running mean: -20.27
+  [PPO update] steps: 77824 | fps: 3017 | policy_loss: -0.0106 | value_loss: 0.0714 | entropy: 0.4216 | running_mean: -20.27
+  [PPO update] steps: 78336 | fps: 3022 | policy_loss: -0.0117 | value_loss: 0.0642 | entropy: 0.4403 | running_mean: -20.27
+  [PPO update] steps: 78848 | fps: 3026 | policy_loss: -0.0127 | value_loss: 0.0923 | entropy: 0.4400 | running_mean: -20.27
+  [PPO update] steps: 79360 | fps: 3031 | policy_loss: -0.0097 | value_loss: 0.0802 | entropy: 0.4340 | running_mean: -20.27
+ep 67 (env 0) reward: -17 | running mean: -20.24
+  [PPO update] steps: 79872 | fps: 3034 | policy_loss: -0.0118 | value_loss: 0.0800 | entropy: 0.4158 | running_mean: -20.24
+  [PPO update] steps: 80384 | fps: 3039 | policy_loss: -0.0105 | value_loss: 0.0639 | entropy: 0.4365 | running_mean: -20.24
+  [PPO update] steps: 80896 | fps: 3042 | policy_loss: -0.0115 | value_loss: 0.0601 | entropy: 0.4207 | running_mean: -20.24
+  [PPO update] steps: 81408 | fps: 3044 | policy_loss: -0.0113 | value_loss: 0.0888 | entropy: 0.4130 | running_mean: -20.24
+ep 68 (env 3) reward: -18 | running mean: -20.22
+  [PPO update] steps: 81920 | fps: 3035 | policy_loss: -0.0132 | value_loss: 0.0677 | entropy: 0.4117 | running_mean: -20.22
+  [PPO update] steps: 82432 | fps: 3023 | policy_loss: -0.0144 | value_loss: 0.0990 | entropy: 0.4188 | running_mean: -20.22
+  [PPO update] steps: 82944 | fps: 3017 | policy_loss: -0.0109 | value_loss: 0.0730 | entropy: 0.4213 | running_mean: -20.22
+  [PPO update] steps: 83456 | fps: 3020 | policy_loss: -0.0128 | value_loss: 0.0747 | entropy: 0.4170 | running_mean: -20.22
+ep 69 (env 1) reward: -19 | running mean: -20.20
+  [PPO update] steps: 83968 | fps: 3021 | policy_loss: -0.0137 | value_loss: 0.0725 | entropy: 0.4020 | running_mean: -20.20
+ep 70 (env 2) reward: -18 | running mean: -20.18
+  [PPO update] steps: 84480 | fps: 3013 | policy_loss: -0.0146 | value_loss: 0.0529 | entropy: 0.4237 | running_mean: -20.18
+  [PPO update] steps: 84992 | fps: 3005 | policy_loss: -0.0159 | value_loss: 0.0501 | entropy: 0.4255 | running_mean: -20.18
+ep 71 (env 0) reward: -20 | running mean: -20.18
+  [PPO update] steps: 85504 | fps: 3001 | policy_loss: -0.0141 | value_loss: 0.0375 | entropy: 0.4075 | running_mean: -20.18
+  [PPO update] steps: 86016 | fps: 3004 | policy_loss: -0.0105 | value_loss: 0.0733 | entropy: 0.4008 | running_mean: -20.18
+  [PPO update] steps: 86528 | fps: 3008 | policy_loss: -0.0110 | value_loss: 0.0721 | entropy: 0.3885 | running_mean: -20.18
+  [PPO update] steps: 87040 | fps: 3012 | policy_loss: -0.0103 | value_loss: 0.0794 | entropy: 0.4151 | running_mean: -20.18
+  [PPO update] steps: 87552 | fps: 3017 | policy_loss: -0.0134 | value_loss: 0.0561 | entropy: 0.4180 | running_mean: -20.18
+  [PPO update] steps: 88064 | fps: 3014 | policy_loss: -0.0167 | value_loss: 0.0629 | entropy: 0.4244 | running_mean: -20.18
+ep 72 (env 3) reward: -20 | running mean: -20.18
+  [PPO update] steps: 88576 | fps: 3006 | policy_loss: -0.0122 | value_loss: 0.0806 | entropy: 0.3945 | running_mean: -20.18
+  [PPO update] steps: 89088 | fps: 3008 | policy_loss: -0.0147 | value_loss: 0.0713 | entropy: 0.4029 | running_mean: -20.18
+ep 73 (env 2) reward: -19 | running mean: -20.17
+ep 74 (env 1) reward: -20 | running mean: -20.16
+  [PPO update] steps: 89600 | fps: 3012 | policy_loss: -0.0116 | value_loss: 0.0724 | entropy: 0.4150 | running_mean: -20.16
+  [PPO update] steps: 90112 | fps: 3016 | policy_loss: -0.0168 | value_loss: 0.0526 | entropy: 0.4037 | running_mean: -20.16
+  [PPO update] steps: 90624 | fps: 3020 | policy_loss: -0.0117 | value_loss: 0.0842 | entropy: 0.4007 | running_mean: -20.16
+  [PPO update] steps: 91136 | fps: 3024 | policy_loss: -0.0148 | value_loss: 0.0686 | entropy: 0.4043 | running_mean: -20.16
+  [PPO update] steps: 91648 | fps: 3028 | policy_loss: -0.0157 | value_loss: 0.0653 | entropy: 0.4200 | running_mean: -20.16
+ep 75 (env 0) reward: -17 | running mean: -20.13
+  [PPO update] steps: 92160 | fps: 3019 | policy_loss: -0.0152 | value_loss: 0.0791 | entropy: 0.4030 | running_mean: -20.13
+  [PPO update] steps: 92672 | fps: 3019 | policy_loss: -0.0097 | value_loss: 0.0507 | entropy: 0.4189 | running_mean: -20.13
+  [PPO update] steps: 93184 | fps: 3023 | policy_loss: -0.0113 | value_loss: 0.0505 | entropy: 0.3998 | running_mean: -20.13
+  [PPO update] steps: 93696 | fps: 3026 | policy_loss: -0.0119 | value_loss: 0.0839 | entropy: 0.4170 | running_mean: -20.13
+  [PPO update] steps: 94208 | fps: 3029 | policy_loss: -0.0151 | value_loss: 0.0986 | entropy: 0.4291 | running_mean: -20.13
+ep 76 (env 3) reward: -19 | running mean: -20.12
+  [PPO update] steps: 94720 | fps: 3018 | policy_loss: -0.0134 | value_loss: 0.0621 | entropy: 0.4309 | running_mean: -20.12
+  [PPO update] steps: 95232 | fps: 3013 | policy_loss: -0.0123 | value_loss: 0.0568 | entropy: 0.4165 | running_mean: -20.12
+ep 77 (env 1) reward: -19 | running mean: -20.11
+  [PPO update] steps: 95744 | fps: 3005 | policy_loss: -0.0112 | value_loss: 0.0570 | entropy: 0.4206 | running_mean: -20.11
+  [PPO update] steps: 96256 | fps: 3003 | policy_loss: -0.0121 | value_loss: 0.0952 | entropy: 0.3975 | running_mean: -20.11
+  [PPO update] steps: 96768 | fps: 2994 | policy_loss: -0.0142 | value_loss: 0.0792 | entropy: 0.4056 | running_mean: -20.11
+ep 78 (env 2) reward: -17 | running mean: -20.08
+  [PPO update] steps: 97280 | fps: 2994 | policy_loss: -0.0148 | value_loss: 0.0591 | entropy: 0.4251 | running_mean: -20.08
+ep 79 (env 0) reward: -19 | running mean: -20.07
+  [PPO update] steps: 97792 | fps: 2997 | policy_loss: -0.0111 | value_loss: 0.0694 | entropy: 0.4137 | running_mean: -20.07
+  [PPO update] steps: 98304 | fps: 3000 | policy_loss: -0.0120 | value_loss: 0.0529 | entropy: 0.4158 | running_mean: -20.07
+  [PPO update] steps: 98816 | fps: 3004 | policy_loss: -0.0132 | value_loss: 0.0737 | entropy: 0.3975 | running_mean: -20.07
+  [PPO update] steps: 99328 | fps: 3007 | policy_loss: -0.0153 | value_loss: 0.0525 | entropy: 0.4001 | running_mean: -20.07
+  [PPO update] steps: 99840 | fps: 3010 | policy_loss: -0.0126 | value_loss: 0.0544 | entropy: 0.4185 | running_mean: -20.07
+  [PPO update] steps: 100352 | fps: 3003 | policy_loss: -0.0165 | value_loss: 0.0316 | entropy: 0.4042 | running_mean: -20.07
+  [PPO update] steps: 100864 | fps: 2996 | policy_loss: -0.0112 | value_loss: 0.0476 | entropy: 0.4179 | running_mean: -20.07
+  [PPO update] steps: 101376 | fps: 2995 | policy_loss: -0.0140 | value_loss: 0.0386 | entropy: 0.4046 | running_mean: -20.07
+  [PPO update] steps: 101888 | fps: 2991 | policy_loss: -0.0188 | value_loss: 0.0262 | entropy: 0.4022 | running_mean: -20.07
+  [PPO update] steps: 102400 | fps: 2995 | policy_loss: -0.0157 | value_loss: 0.0751 | entropy: 0.4123 | running_mean: -20.07
+  [PPO update] steps: 102912 | fps: 2999 | policy_loss: -0.0145 | value_loss: 0.0540 | entropy: 0.4206 | running_mean: -20.07
+ep 80 (env 3) reward: -15 | running mean: -20.02
+ep 81 (env 1) reward: -17 | running mean: -19.99
+  [PPO update] steps: 103424 | fps: 3002 | policy_loss: -0.0133 | value_loss: 0.0511 | entropy: 0.4084 | running_mean: -19.99
+ep 82 (env 2) reward: -19 | running mean: -19.98
+  [PPO update] steps: 103936 | fps: 3006 | policy_loss: -0.0118 | value_loss: 0.0744 | entropy: 0.4149 | running_mean: -19.98
+  [PPO update] steps: 104448 | fps: 3010 | policy_loss: -0.0139 | value_loss: 0.0498 | entropy: 0.4041 | running_mean: -19.98
+  [PPO update] steps: 104960 | fps: 3013 | policy_loss: -0.0121 | value_loss: 0.0884 | entropy: 0.4053 | running_mean: -19.98
+  [PPO update] steps: 105472 | fps: 3017 | policy_loss: -0.0116 | value_loss: 0.0318 | entropy: 0.4073 | running_mean: -19.98
+  [PPO update] steps: 105984 | fps: 3020 | policy_loss: -0.0097 | value_loss: 0.0605 | entropy: 0.4190 | running_mean: -19.98
+ep 83 (env 0) reward: -18 | running mean: -19.96
+  [PPO update] steps: 106496 | fps: 3022 | policy_loss: -0.0133 | value_loss: 0.0430 | entropy: 0.4248 | running_mean: -19.96
+  [PPO update] steps: 107008 | fps: 3024 | policy_loss: -0.0150 | value_loss: 0.0554 | entropy: 0.4207 | running_mean: -19.96
+  [PPO update] steps: 107520 | fps: 3015 | policy_loss: -0.0130 | value_loss: 0.0669 | entropy: 0.4060 | running_mean: -19.96
+  [PPO update] steps: 108032 | fps: 3011 | policy_loss: -0.0189 | value_loss: 0.0623 | entropy: 0.4075 | running_mean: -19.96
+  [PPO update] steps: 108544 | fps: 3011 | policy_loss: -0.0134 | value_loss: 0.0727 | entropy: 0.4111 | running_mean: -19.96
+ep 84 (env 1) reward: -18 | running mean: -19.94
+  [PPO update] steps: 109056 | fps: 3010 | policy_loss: -0.0135 | value_loss: 0.0673 | entropy: 0.4122 | running_mean: -19.94
+  [PPO update] steps: 109568 | fps: 3003 | policy_loss: -0.0201 | value_loss: 0.0486 | entropy: 0.4187 | running_mean: -19.94
+  [PPO update] steps: 110080 | fps: 2999 | policy_loss: -0.0138 | value_loss: 0.0683 | entropy: 0.3845 | running_mean: -19.94
+  [PPO update] steps: 110592 | fps: 3002 | policy_loss: -0.0147 | value_loss: 0.0764 | entropy: 0.3998 | running_mean: -19.94
+ep 85 (env 3) reward: -19 | running mean: -19.93
+  [PPO update] steps: 111104 | fps: 3004 | policy_loss: -0.0123 | value_loss: 0.0568 | entropy: 0.4132 | running_mean: -19.93
+ep 86 (env 2) reward: -17 | running mean: -19.90
+  [PPO update] steps: 111616 | fps: 3004 | policy_loss: -0.0129 | value_loss: 0.0469 | entropy: 0.4194 | running_mean: -19.90
+  [PPO update] steps: 112128 | fps: 3001 | policy_loss: -0.0118 | value_loss: 0.0528 | entropy: 0.3883 | running_mean: -19.90
+  [PPO update] steps: 112640 | fps: 2999 | policy_loss: -0.0137 | value_loss: 0.0507 | entropy: 0.3927 | running_mean: -19.90
+  [PPO update] steps: 113152 | fps: 3003 | policy_loss: -0.0099 | value_loss: 0.0604 | entropy: 0.4043 | running_mean: -19.90
+ep 87 (env 0) reward: -18 | running mean: -19.88
+  [PPO update] steps: 113664 | fps: 3001 | policy_loss: -0.0143 | value_loss: 0.0323 | entropy: 0.4330 | running_mean: -19.88
+  [PPO update] steps: 114176 | fps: 2996 | policy_loss: -0.0137 | value_loss: 0.0772 | entropy: 0.4351 | running_mean: -19.88
+  [PPO update] steps: 114688 | fps: 2998 | policy_loss: -0.0136 | value_loss: 0.0716 | entropy: 0.4036 | running_mean: -19.88
+  [PPO update] steps: 115200 | fps: 3001 | policy_loss: -0.0096 | value_loss: 0.0572 | entropy: 0.4268 | running_mean: -19.88
+  [PPO update] steps: 115712 | fps: 3005 | policy_loss: -0.0137 | value_loss: 0.0514 | entropy: 0.3990 | running_mean: -19.88
+ep 88 (env 1) reward: -20 | running mean: -19.88
+  [PPO update] steps: 116224 | fps: 3009 | policy_loss: -0.0152 | value_loss: 0.0430 | entropy: 0.4208 | running_mean: -19.88
+  [PPO update] steps: 116736 | fps: 3012 | policy_loss: -0.0137 | value_loss: 0.0541 | entropy: 0.3825 | running_mean: -19.88
+  [PPO update] steps: 117248 | fps: 3015 | policy_loss: -0.0124 | value_loss: 0.0589 | entropy: 0.3998 | running_mean: -19.88
+ep 89 (env 3) reward: -16 | running mean: -19.84
+  [PPO update] steps: 117760 | fps: 3018 | policy_loss: -0.0151 | value_loss: 0.0412 | entropy: 0.4158 | running_mean: -19.84
+  [PPO update] steps: 118272 | fps: 3022 | policy_loss: -0.0177 | value_loss: 0.0610 | entropy: 0.4187 | running_mean: -19.84
+ep 90 (env 2) reward: -19 | running mean: -19.83
+  [PPO update] steps: 118784 | fps: 3025 | policy_loss: -0.0152 | value_loss: 0.0344 | entropy: 0.4224 | running_mean: -19.83
+  [PPO update] steps: 119296 | fps: 3027 | policy_loss: -0.0118 | value_loss: 0.0831 | entropy: 0.4087 | running_mean: -19.83
+  [PPO update] steps: 119808 | fps: 3030 | policy_loss: -0.0123 | value_loss: 0.0573 | entropy: 0.3804 | running_mean: -19.83
+  [PPO update] steps: 120320 | fps: 3031 | policy_loss: -0.0157 | value_loss: 0.0429 | entropy: 0.3852 | running_mean: -19.83
+  [PPO update] steps: 120832 | fps: 3029 | policy_loss: -0.0156 | value_loss: 0.0503 | entropy: 0.3748 | running_mean: -19.83
+ep 91 (env 0) reward: -18 | running mean: -19.82
+  [PPO update] steps: 121344 | fps: 3023 | policy_loss: -0.0142 | value_loss: 0.0758 | entropy: 0.3795 | running_mean: -19.82
+  [PPO update] steps: 121856 | fps: 3020 | policy_loss: -0.0122 | value_loss: 0.0763 | entropy: 0.3751 | running_mean: -19.82
+  [PPO update] steps: 122368 | fps: 3013 | policy_loss: -0.0108 | value_loss: 0.0568 | entropy: 0.3835 | running_mean: -19.82
+  [PPO update] steps: 122880 | fps: 3006 | policy_loss: -0.0140 | value_loss: 0.0608 | entropy: 0.4025 | running_mean: -19.82
+  [PPO update] steps: 123392 | fps: 3004 | policy_loss: -0.0153 | value_loss: 0.0548 | entropy: 0.4110 | running_mean: -19.82
+  [PPO update] steps: 123904 | fps: 3004 | policy_loss: -0.0143 | value_loss: 0.0493 | entropy: 0.3845 | running_mean: -19.82
+  [PPO update] steps: 124416 | fps: 3007 | policy_loss: -0.0141 | value_loss: 0.0479 | entropy: 0.3839 | running_mean: -19.82
+  [PPO update] steps: 124928 | fps: 3011 | policy_loss: -0.0127 | value_loss: 0.0652 | entropy: 0.3761 | running_mean: -19.82
+ep 92 (env 2) reward: -18 | running mean: -19.80
+ep 93 (env 1) reward: -15 | running mean: -19.75
+  [PPO update] steps: 125440 | fps: 3014 | policy_loss: -0.0151 | value_loss: 0.0424 | entropy: 0.3851 | running_mean: -19.75
+ep 94 (env 3) reward: -15 | running mean: -19.70
+  [PPO update] steps: 125952 | fps: 3017 | policy_loss: -0.0163 | value_loss: 0.0375 | entropy: 0.3830 | running_mean: -19.70
+  [PPO update] steps: 126464 | fps: 3021 | policy_loss: -0.0134 | value_loss: 0.0601 | entropy: 0.3783 | running_mean: -19.70
+  [PPO update] steps: 126976 | fps: 3024 | policy_loss: -0.0147 | value_loss: 0.0826 | entropy: 0.3719 | running_mean: -19.70
+ep 95 (env 0) reward: -19 | running mean: -19.70
+  [PPO update] steps: 127488 | fps: 3027 | policy_loss: -0.0130 | value_loss: 0.0606 | entropy: 0.3803 | running_mean: -19.70
+  [PPO update] steps: 128000 | fps: 3030 | policy_loss: -0.0108 | value_loss: 0.0372 | entropy: 0.3588 | running_mean: -19.70
+  [PPO update] steps: 128512 | fps: 3032 | policy_loss: -0.0119 | value_loss: 0.0467 | entropy: 0.3664 | running_mean: -19.70
+  [PPO update] steps: 129024 | fps: 3035 | policy_loss: -0.0158 | value_loss: 0.0484 | entropy: 0.3848 | running_mean: -19.70
+  [PPO update] steps: 129536 | fps: 3033 | policy_loss: -0.0118 | value_loss: 0.0564 | entropy: 0.3877 | running_mean: -19.70
+  [PPO update] steps: 130048 | fps: 3027 | policy_loss: -0.0152 | value_loss: 0.0789 | entropy: 0.3478 | running_mean: -19.70
+  [PPO update] steps: 130560 | fps: 3027 | policy_loss: -0.0132 | value_loss: 0.0494 | entropy: 0.3775 | running_mean: -19.70
+  [PPO update] steps: 131072 | fps: 3030 | policy_loss: -0.0168 | value_loss: 0.0447 | entropy: 0.3980 | running_mean: -19.70
+  [PPO update] steps: 131584 | fps: 3033 | policy_loss: -0.0130 | value_loss: 0.0696 | entropy: 0.3580 | running_mean: -19.70
+  [PPO update] steps: 132096 | fps: 3035 | policy_loss: -0.0094 | value_loss: 0.0646 | entropy: 0.3676 | running_mean: -19.70
+  [PPO update] steps: 132608 | fps: 3038 | policy_loss: -0.0145 | value_loss: 0.0570 | entropy: 0.3564 | running_mean: -19.70
+  [PPO update] steps: 133120 | fps: 3039 | policy_loss: -0.0105 | value_loss: 0.0749 | entropy: 0.3750 | running_mean: -19.70
+ep 96 (env 2) reward: -19 | running mean: -19.69
+  [PPO update] steps: 133632 | fps: 3041 | policy_loss: -0.0113 | value_loss: 0.0332 | entropy: 0.3793 | running_mean: -19.69
+ep 97 (env 1) reward: -16 | running mean: -19.65
+ep 98 (env 0) reward: -17 | running mean: -19.62
+  [PPO update] steps: 134144 | fps: 3042 | policy_loss: -0.0111 | value_loss: 0.0421 | entropy: 0.3793 | running_mean: -19.62
+  [PPO update] steps: 134656 | fps: 3037 | policy_loss: -0.0157 | value_loss: 0.0562 | entropy: 0.3814 | running_mean: -19.62
+  [PPO update] steps: 135168 | fps: 3032 | policy_loss: -0.0175 | value_loss: 0.0742 | entropy: 0.3845 | running_mean: -19.62
+  [PPO update] steps: 135680 | fps: 3027 | policy_loss: -0.0109 | value_loss: 0.0602 | entropy: 0.3604 | running_mean: -19.62
+ep 99 (env 3) reward: -14 | running mean: -19.57
+  [PPO update] steps: 136192 | fps: 3024 | policy_loss: -0.0114 | value_loss: 0.0327 | entropy: 0.3670 | running_mean: -19.57
+  [PPO update] steps: 136704 | fps: 3019 | policy_loss: -0.0115 | value_loss: 0.0432 | entropy: 0.3797 | running_mean: -19.57
+  [PPO update] steps: 137216 | fps: 3016 | policy_loss: -0.0132 | value_loss: 0.0373 | entropy: 0.3624 | running_mean: -19.57
+  [PPO update] steps: 137728 | fps: 3019 | policy_loss: -0.0131 | value_loss: 0.0709 | entropy: 0.3721 | running_mean: -19.57
+  [PPO update] steps: 138240 | fps: 3021 | policy_loss: -0.0128 | value_loss: 0.0578 | entropy: 0.3690 | running_mean: -19.57
+  [PPO update] steps: 138752 | fps: 3024 | policy_loss: -0.0142 | value_loss: 0.0593 | entropy: 0.3794 | running_mean: -19.57
+  [PPO update] steps: 139264 | fps: 3027 | policy_loss: -0.0128 | value_loss: 0.0605 | entropy: 0.3566 | running_mean: -19.57
+  [PPO update] steps: 139776 | fps: 3030 | policy_loss: -0.0166 | value_loss: 0.0492 | entropy: 0.3456 | running_mean: -19.57
+  [PPO update] steps: 140288 | fps: 3033 | policy_loss: -0.0119 | value_loss: 0.0485 | entropy: 0.3404 | running_mean: -19.57
+  [PPO update] steps: 140800 | fps: 3036 | policy_loss: -0.0128 | value_loss: 0.0650 | entropy: 0.3770 | running_mean: -19.57
+  [PPO update] steps: 141312 | fps: 3039 | policy_loss: -0.0093 | value_loss: 0.0707 | entropy: 0.3724 | running_mean: -19.57
+  [PPO update] steps: 141824 | fps: 3042 | policy_loss: -0.0125 | value_loss: 0.0439 | entropy: 0.3717 | running_mean: -19.57
+ep 100 (env 2) reward: -15 | running mean: -19.52
+  [checkpoint saved]
+  [PPO update] steps: 142336 | fps: 3044 | policy_loss: -0.0121 | value_loss: 0.0464 | entropy: 0.3797 | running_mean: -19.52
+  [PPO update] steps: 142848 | fps: 3045 | policy_loss: -0.0129 | value_loss: 0.0720 | entropy: 0.3626 | running_mean: -19.52
+ep 101 (env 0) reward: -15 | running mean: -19.48
+ep 102 (env 3) reward: -16 | running mean: -19.44
+  [PPO update] steps: 143360 | fps: 3047 | policy_loss: -0.0144 | value_loss: 0.0537 | entropy: 0.4053 | running_mean: -19.44
+  [PPO update] steps: 143872 | fps: 3044 | policy_loss: -0.0134 | value_loss: 0.0534 | entropy: 0.3637 | running_mean: -19.44
+  [PPO update] steps: 144384 | fps: 3040 | policy_loss: -0.0141 | value_loss: 0.0541 | entropy: 0.3538 | running_mean: -19.44
+ep 103 (env 1) reward: -11 | running mean: -19.36
+  [PPO update] steps: 144896 | fps: 3040 | policy_loss: -0.0119 | value_loss: 0.0431 | entropy: 0.3771 | running_mean: -19.36
+  [PPO update] steps: 145408 | fps: 3040 | policy_loss: -0.0118 | value_loss: 0.0700 | entropy: 0.3473 | running_mean: -19.36
+  [PPO update] steps: 145920 | fps: 3035 | policy_loss: -0.0149 | value_loss: 0.0572 | entropy: 0.3737 | running_mean: -19.36
+  [PPO update] steps: 146432 | fps: 3033 | policy_loss: -0.0169 | value_loss: 0.0650 | entropy: 0.3743 | running_mean: -19.36
+  [PPO update] steps: 146944 | fps: 3035 | policy_loss: -0.0143 | value_loss: 0.0746 | entropy: 0.3677 | running_mean: -19.36
+  [PPO update] steps: 147456 | fps: 3038 | policy_loss: -0.0143 | value_loss: 0.0558 | entropy: 0.3453 | running_mean: -19.36
+  [PPO update] steps: 147968 | fps: 3038 | policy_loss: -0.0146 | value_loss: 0.0468 | entropy: 0.3556 | running_mean: -19.36
+  [PPO update] steps: 148480 | fps: 3033 | policy_loss: -0.0151 | value_loss: 0.0573 | entropy: 0.3585 | running_mean: -19.36
+  [PPO update] steps: 148992 | fps: 3028 | policy_loss: -0.0182 | value_loss: 0.0612 | entropy: 0.3274 | running_mean: -19.36
+ep 104 (env 2) reward: -16 | running mean: -19.32
+  [PPO update] steps: 149504 | fps: 3024 | policy_loss: -0.0119 | value_loss: 0.0434 | entropy: 0.3634 | running_mean: -19.32
+  [PPO update] steps: 150016 | fps: 3024 | policy_loss: -0.0154 | value_loss: 0.0255 | entropy: 0.3616 | running_mean: -19.32
+  [PPO update] steps: 150528 | fps: 3021 | policy_loss: -0.0125 | value_loss: 0.0320 | entropy: 0.3382 | running_mean: -19.32
+  [PPO update] steps: 151040 | fps: 3023 | policy_loss: -0.0118 | value_loss: 0.0634 | entropy: 0.3527 | running_mean: -19.32
+  [PPO update] steps: 151552 | fps: 3026 | policy_loss: -0.0118 | value_loss: 0.0514 | entropy: 0.3477 | running_mean: -19.32
+ep 105 (env 3) reward: -13 | running mean: -19.26
+  [PPO update] steps: 152064 | fps: 3029 | policy_loss: -0.0174 | value_loss: 0.0718 | entropy: 0.3635 | running_mean: -19.26
+  [PPO update] steps: 152576 | fps: 3031 | policy_loss: -0.0209 | value_loss: 0.0601 | entropy: 0.3533 | running_mean: -19.26
+  [PPO update] steps: 153088 | fps: 3033 | policy_loss: -0.0151 | value_loss: 0.0529 | entropy: 0.3692 | running_mean: -19.26
+  [PPO update] steps: 153600 | fps: 3035 | policy_loss: -0.0103 | value_loss: 0.0519 | entropy: 0.3311 | running_mean: -19.26
+ep 106 (env 0) reward: -12 | running mean: -19.19
+  [PPO update] steps: 154112 | fps: 3038 | policy_loss: -0.0142 | value_loss: 0.0290 | entropy: 0.3539 | running_mean: -19.19
+  [PPO update] steps: 154624 | fps: 3040 | policy_loss: -0.0122 | value_loss: 0.0364 | entropy: 0.3495 | running_mean: -19.19
+ep 107 (env 1) reward: -14 | running mean: -19.14
+  [PPO update] steps: 155136 | fps: 3041 | policy_loss: -0.0088 | value_loss: 0.0716 | entropy: 0.3614 | running_mean: -19.14
+  [PPO update] steps: 155648 | fps: 3042 | policy_loss: -0.0132 | value_loss: 0.0609 | entropy: 0.3484 | running_mean: -19.14
+  [PPO update] steps: 156160 | fps: 3036 | policy_loss: -0.0160 | value_loss: 0.0556 | entropy: 0.3378 | running_mean: -19.14
+  [PPO update] steps: 156672 | fps: 3030 | policy_loss: -0.0198 | value_loss: 0.0496 | entropy: 0.3910 | running_mean: -19.14
+  [PPO update] steps: 157184 | fps: 3026 | policy_loss: -0.0122 | value_loss: 0.0539 | entropy: 0.3704 | running_mean: -19.14
+  [PPO update] steps: 157696 | fps: 3024 | policy_loss: -0.0140 | value_loss: 0.0711 | entropy: 0.3683 | running_mean: -19.14
+  [PPO update] steps: 158208 | fps: 3027 | policy_loss: -0.0149 | value_loss: 0.0536 | entropy: 0.3863 | running_mean: -19.14
+  [PPO update] steps: 158720 | fps: 3029 | policy_loss: -0.0169 | value_loss: 0.0680 | entropy: 0.3820 | running_mean: -19.14
+ep 108 (env 2) reward: -11 | running mean: -19.06
+  [PPO update] steps: 159232 | fps: 3031 | policy_loss: -0.0130 | value_loss: 0.0664 | entropy: 0.3543 | running_mean: -19.06
+  [PPO update] steps: 159744 | fps: 3034 | policy_loss: -0.0151 | value_loss: 0.0637 | entropy: 0.3453 | running_mean: -19.06
+  [PPO update] steps: 160256 | fps: 3029 | policy_loss: -0.0127 | value_loss: 0.0574 | entropy: 0.3331 | running_mean: -19.06
+  [PPO update] steps: 160768 | fps: 3024 | policy_loss: -0.0157 | value_loss: 0.0359 | entropy: 0.3414 | running_mean: -19.06
+  [PPO update] steps: 161280 | fps: 3018 | policy_loss: -0.0145 | value_loss: 0.0514 | entropy: 0.3623 | running_mean: -19.06
+ep 109 (env 3) reward: -12 | running mean: -18.99
+  [PPO update] steps: 161792 | fps: 3019 | policy_loss: -0.0104 | value_loss: 0.0701 | entropy: 0.3504 | running_mean: -18.99
+  [PPO update] steps: 162304 | fps: 3020 | policy_loss: -0.0149 | value_loss: 0.0651 | entropy: 0.3489 | running_mean: -18.99
+  [PPO update] steps: 162816 | fps: 3016 | policy_loss: -0.0143 | value_loss: 0.0539 | entropy: 0.3472 | running_mean: -18.99
+  [PPO update] steps: 163328 | fps: 3012 | policy_loss: -0.0149 | value_loss: 0.0455 | entropy: 0.3357 | running_mean: -18.99
+  [PPO update] steps: 163840 | fps: 3011 | policy_loss: -0.0152 | value_loss: 0.0516 | entropy: 0.3168 | running_mean: -18.99
+ep 110 (env 1) reward: -13 | running mean: -18.93
+ep 111 (env 0) reward: -17 | running mean: -18.91
+  [PPO update] steps: 164352 | fps: 3013 | policy_loss: -0.0147 | value_loss: 0.0442 | entropy: 0.3454 | running_mean: -18.91
+  [PPO update] steps: 164864 | fps: 3015 | policy_loss: -0.0137 | value_loss: 0.0421 | entropy: 0.3339 | running_mean: -18.91
+  [PPO update] steps: 165376 | fps: 3015 | policy_loss: -0.0110 | value_loss: 0.0564 | entropy: 0.3622 | running_mean: -18.91
+  [PPO update] steps: 165888 | fps: 3012 | policy_loss: -0.0127 | value_loss: 0.0599 | entropy: 0.3292 | running_mean: -18.91
+  [PPO update] steps: 166400 | fps: 3009 | policy_loss: -0.0124 | value_loss: 0.0367 | entropy: 0.3399 | running_mean: -18.91
+  [PPO update] steps: 166912 | fps: 3011 | policy_loss: -0.0136 | value_loss: 0.0531 | entropy: 0.3125 | running_mean: -18.91
+  [PPO update] steps: 167424 | fps: 3013 | policy_loss: -0.0080 | value_loss: 0.0708 | entropy: 0.3232 | running_mean: -18.91
+  [PPO update] steps: 167936 | fps: 3015 | policy_loss: -0.0123 | value_loss: 0.0386 | entropy: 0.3140 | running_mean: -18.91
+  [PPO update] steps: 168448 | fps: 3017 | policy_loss: -0.0122 | value_loss: 0.0733 | entropy: 0.3496 | running_mean: -18.91
+  [PPO update] steps: 168960 | fps: 3015 | policy_loss: -0.0107 | value_loss: 0.0681 | entropy: 0.3438 | running_mean: -18.91
+  [PPO update] steps: 169472 | fps: 3014 | policy_loss: -0.0174 | value_loss: 0.0547 | entropy: 0.3333 | running_mean: -18.91
+  [PPO update] steps: 169984 | fps: 3001 | policy_loss: -0.0126 | value_loss: 0.0481 | entropy: 0.3263 | running_mean: -18.91
+  [PPO update] steps: 170496 | fps: 3001 | policy_loss: -0.0132 | value_loss: 0.0985 | entropy: 0.3448 | running_mean: -18.91
+  [PPO update] steps: 171008 | fps: 2994 | policy_loss: -0.0116 | value_loss: 0.0636 | entropy: 0.3125 | running_mean: -18.91
+ep 112 (env 1) reward: -17 | running mean: -18.89
+  [PPO update] steps: 171520 | fps: 2990 | policy_loss: -0.0121 | value_loss: 0.0591 | entropy: 0.3052 | running_mean: -18.89
+ep 113 (env 2) reward: -3 | running mean: -18.73
+  [PPO update] steps: 172032 | fps: 2983 | policy_loss: -0.0147 | value_loss: 0.0274 | entropy: 0.3438 | running_mean: -18.73
+  [PPO update] steps: 172544 | fps: 2984 | policy_loss: -0.0123 | value_loss: 0.0487 | entropy: 0.3309 | running_mean: -18.73
+  [PPO update] steps: 173056 | fps: 2985 | policy_loss: -0.0086 | value_loss: 0.0494 | entropy: 0.3202 | running_mean: -18.73
+  [PPO update] steps: 173568 | fps: 2986 | policy_loss: -0.0104 | value_loss: 0.0779 | entropy: 0.3189 | running_mean: -18.73
+  [PPO update] steps: 174080 | fps: 2987 | policy_loss: -0.0111 | value_loss: 0.0513 | entropy: 0.3351 | running_mean: -18.73
+  [PPO update] steps: 174592 | fps: 2989 | policy_loss: -0.0111 | value_loss: 0.0489 | entropy: 0.3379 | running_mean: -18.73
+ep 114 (env 3) reward: -8 | running mean: -18.62
+  [PPO update] steps: 175104 | fps: 2990 | policy_loss: -0.0101 | value_loss: 0.0696 | entropy: 0.3013 | running_mean: -18.62
+  [PPO update] steps: 175616 | fps: 2987 | policy_loss: -0.0128 | value_loss: 0.0564 | entropy: 0.3112 | running_mean: -18.62
+  [PPO update] steps: 176128 | fps: 2981 | policy_loss: -0.0108 | value_loss: 0.0480 | entropy: 0.2856 | running_mean: -18.62
+  [PPO update] steps: 176640 | fps: 2980 | policy_loss: -0.0117 | value_loss: 0.0601 | entropy: 0.3144 | running_mean: -18.62
+  [PPO update] steps: 177152 | fps: 2978 | policy_loss: -0.0120 | value_loss: 0.0629 | entropy: 0.3192 | running_mean: -18.62
+  [PPO update] steps: 177664 | fps: 2980 | policy_loss: -0.0123 | value_loss: 0.0465 | entropy: 0.3160 | running_mean: -18.62
+ep 115 (env 0) reward: -5 | running mean: -18.48
+  [PPO update] steps: 178176 | fps: 2981 | policy_loss: -0.0099 | value_loss: 0.0562 | entropy: 0.3026 | running_mean: -18.48
+  [PPO update] steps: 178688 | fps: 2983 | policy_loss: -0.0104 | value_loss: 0.0635 | entropy: 0.3108 | running_mean: -18.48
+  [PPO update] steps: 179200 | fps: 2985 | policy_loss: -0.0148 | value_loss: 0.0588 | entropy: 0.3286 | running_mean: -18.48
+  [PPO update] steps: 179712 | fps: 2986 | policy_loss: -0.0115 | value_loss: 0.0705 | entropy: 0.3241 | running_mean: -18.48Process Worker<AsyncVectorEnv>-0:
+Process Worker<AsyncVectorEnv>-1:
+Process Worker<AsyncVectorEnv>-2:
+Process Worker<AsyncVectorEnv>-3:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/Users/shishouke/miniconda3/lib/python3.13/site-packages/gymnasium/vector/async_vector_env.py", line 740, in _async_worker
+    command, data = pipe.recv()
+                    ~~~~~~~~~^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+  File "/Users/shishouke/miniconda3/lib/python3.13/site-packages/gymnasium/vector/async_vector_env.py", line 740, in _async_worker
+    command, data = pipe.recv()
+                    ~~~~~~~~~^^
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+  File "/Users/shishouke/miniconda3/lib/python3.13/site-packages/gymnasium/vector/async_vector_env.py", line 740, in _async_worker
+    command, data = pipe.recv()
+                    ~~~~~~~~~^^
+EOFError
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+
+During handling of the above exception, another exception occurred:
+
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+Traceback (most recent call last):
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shishouke/miniconda3/lib/python3.13/site-packages/gymnasium/vector/async_vector_env.py", line 740, in _async_worker
+    command, data = pipe.recv()
+                    ~~~~~~~~~^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/site-packages/gymnasium/vector/async_vector_env.py", line 850, in _async_worker
+    pipe.send((None, False))
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/site-packages/gymnasium/vector/async_vector_env.py", line 850, in _async_worker
+    pipe.send((None, False))
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/site-packages/gymnasium/vector/async_vector_env.py", line 850, in _async_worker
+    pipe.send((None, False))
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/site-packages/gymnasium/vector/async_vector_env.py", line 850, in _async_worker
+    pipe.send((None, False))
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+/Users/shishouke/miniconda3/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 3 leaked semaphore objects to clean up at shutdown: {'/mp-vviwqyg6', '/mp-evsnat6q', '/mp-6mdnofn7'}
+  warnings.warn(
