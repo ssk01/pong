@@ -27,16 +27,16 @@ class PongPolicy(nn.Module):
         return torch.sigmoid(self.fc2(torch.relu(self.fc1(x))))
 
 
-def get_batch_files(last_n=10):
-    """Return sorted list of batch file paths. Only use last_n files to keep it manageable."""
+def get_batch_files(first_n=5):
+    """Return sorted list of batch file paths. Use first_n files (early batches are smaller)."""
     all_files = sorted([
         os.path.join(REPLAY_DIR, f)
         for f in os.listdir(REPLAY_DIR)
         if f.startswith("batch_") and f.endswith(".npz")
     ])
-    if last_n and last_n < len(all_files):
-        print(f"Using last {last_n} of {len(all_files)} batch files")
-        return all_files[-last_n:]
+    if first_n and first_n < len(all_files):
+        print(f"Using first {first_n} of {len(all_files)} batch files (~{first_n*100} episodes)")
+        return all_files[:first_n]
     return all_files
 
 
@@ -48,10 +48,10 @@ def load_index():
 
 def iter_episodes_from_batch(batch_path):
     """Yield episodes one by one from a single batch file. Uses mmap to avoid loading all into RAM."""
-    data = np.load(batch_path, mmap_mode='r')
-    ep_ids = np.array(data["episode_ids"])
-    rewards = np.array(data["total_rewards"])
-    num_steps = np.array(data["num_steps"])
+    data = np.load(batch_path)
+    ep_ids = data["episode_ids"]
+    rewards = data["total_rewards"]
+    num_steps = data["num_steps"]
 
     offset = 0
     for i in range(len(ep_ids)):
@@ -74,9 +74,9 @@ MINI_BATCH = 2048
 
 def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
     """Train on one batch file using mini-batches of raw steps. Fast."""
-    data = np.load(batch_path, mmap_mode='r')
-    num_steps = np.array(data["num_steps"])
-    total_rewards = np.array(data["total_rewards"])
+    data = np.load(batch_path)
+    num_steps = data["num_steps"]
+    total_rewards = data["total_rewards"]
 
     # figure out which episodes to include
     offsets = np.concatenate([[0], np.cumsum(num_steps)])
