@@ -11,9 +11,10 @@ csv_file = open("results.csv", "w", newline="")
 csv_writer = csv.writer(csv_file)
 csv_writer.writerow(["epoch", "avg_loss", "episodes"])
 
-print("=== Exp2: Filtered (reward > -15 only) ===")
-train_streaming(model, optimizer, csv_writer, max_epochs=5, label="filtered",
-                filter_fn=lambda ep: ep["total_reward"] > -15)
+print("=== Exp2: Filtered (reward > -18 only) ===")
+# Use all batch files but only train on episodes with reward > -18
+train_streaming(model, optimizer, csv_writer, max_epochs=3, label="filtered",
+                filter_fn=lambda ep: ep["total_reward"] > -18)
 
 torch.save(model.state_dict(), "model.pt")
 mean_reward = evaluate(model, num_episodes=50)
