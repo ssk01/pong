@@ -1,6 +1,6 @@
 """
 Shared utilities for offline RL experiments (exp1-4).
-Loads replay_data/ samples and provides different iteration strategies.
+Loads replay_data/ samples in streaming fashion to avoid OOM.
 """
 
 import json
@@ -12,7 +12,6 @@ import torch.nn as nn
 D = 80 * 80
 H = 200
 LEARNING_RATE = 1e-4
-BATCH_SIZE = 2048  # steps per gradient update
 
 REPLAY_DIR = os.path.join(os.path.dirname(__file__), "..", "replay_data")
 
@@ -27,81 +26,99 @@ class PongPolicy(nn.Module):
         return torch.sigmoid(self.fc2(torch.relu(self.fc1(x))))
 
 
-def load_all_episodes():
-    """Load all episodes from replay_data/ into a list of dicts."""
-    with open(os.path.join(REPLAY_DIR, "index.json")) as f:
-        index = json.load(f)
-
-    # find all batch files
-    batch_files = sorted([
-        f for f in os.listdir(REPLAY_DIR) if f.startswith("batch_") and f.endswith(".npz")
+def get_batch_files():
+    """Return sorted list of batch file paths."""
+    return sorted([
+        os.path.join(REPLAY_DIR, f)
+        for f in os.listdir(REPLAY_DIR)
+        if f.startswith("batch_") and f.endswith(".npz")
     ])
 
-    episodes = []
-    for bf in batch_files:
-        data = np.load(os.path.join(REPLAY_DIR, bf))
-        ep_ids = data["episode_ids"]
-        rewards = data["total_rewards"]
-        num_steps = data["num_steps"]
-        all_xs = data["all_xs"]
-        all_actions = data["all_actions"]
-        all_rewards = data["all_rewards"]
-        all_discounted = data["all_discounted"]
-        all_aprobs = data["all_aprobs"]
 
-        offset = 0
-        for i in range(len(ep_ids)):
-            n = num_steps[i]
-            episodes.append({
-                "episode_id": int(ep_ids[i]),
-                "total_reward": float(rewards[i]),
-                "xs": all_xs[offset:offset+n].astype(np.float32),
-                "actions": all_actions[offset:offset+n],
-                "rewards": all_rewards[offset:offset+n],
-                "discounted_rewards": all_discounted[offset:offset+n],
-                "aprobs": all_aprobs[offset:offset+n],
-            })
-            offset += n
-
-    print(f"Loaded {len(episodes)} episodes from {len(batch_files)} batch files")
-    return episodes
+def load_index():
+    """Load episode index (lightweight metadata only)."""
+    with open(os.path.join(REPLAY_DIR, "index.json")) as f:
+        return json.load(f)
 
 
-def train_on_episodes(episodes, model, optimizer, csv_writer, max_epochs=5, label=""):
-    """Train model on a list of episodes, one epoch = one pass through all episodes."""
-    total_steps = sum(len(ep["xs"]) for ep in episodes)
-    print(f"[{label}] {len(episodes)} episodes, {total_steps:,} total steps, {max_epochs} epochs")
+def iter_episodes_from_batch(batch_path):
+    """Yield episodes one by one from a single batch file. Memory efficient."""
+    data = np.load(batch_path)
+    ep_ids = data["episode_ids"]
+    rewards = data["total_rewards"]
+    num_steps = data["num_steps"]
+    all_xs = data["all_xs"]
+    all_actions = data["all_actions"]
+    all_discounted = data["all_discounted"]
+
+    offset = 0
+    for i in range(len(ep_ids)):
+        n = num_steps[i]
+        yield {
+            "episode_id": int(ep_ids[i]),
+            "total_reward": float(rewards[i]),
+            "xs": all_xs[offset:offset+n].astype(np.float32),
+            "actions": all_actions[offset:offset+n],
+            "discounted_rewards": all_discounted[offset:offset+n],
+        }
+        offset += n
+
+
+def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
+    """Train on one batch file (100 episodes). Returns avg loss and episode count."""
+    total_loss = 0.0
+    ep_count = 0
+
+    for ep in iter_episodes_from_batch(batch_path):
+        if filter_fn and not filter_fn(ep):
+            continue
+
+        xs = torch.from_numpy(ep["xs"])
+        actions = torch.from_numpy(ep["actions"]).float()
+        disc_r = ep["discounted_rewards"].copy()
+        disc_r -= disc_r.mean()
+        std = disc_r.std()
+        if std > 0:
+            disc_r /= std
+        disc_tensor = torch.from_numpy(disc_r.astype(np.float32))
+
+        probs = model(xs).squeeze()
+        log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
+        loss = -(log_prob * disc_tensor).sum()
+
+        optimizer.zero_grad()
+        loss.backward()
+        nn.utils.clip_grad_norm_(model.parameters(), 0.5)
+        optimizer.step()
+
+        total_loss += loss.item()
+        ep_count += 1
+
+    return total_loss / max(ep_count, 1), ep_count
+
+
+def train_streaming(model, optimizer, csv_writer, max_epochs=5, label="",
+                    batch_order_fn=None, filter_fn=None):
+    """Train model by streaming through batch files. Never loads all data at once."""
+    batch_files = get_batch_files()
+    print(f"[{label}] {len(batch_files)} batch files, {max_epochs} epochs")
 
     for epoch in range(max_epochs):
+        files = list(batch_files)
+        if batch_order_fn:
+            files = batch_order_fn(files, epoch)
+
         epoch_loss = 0.0
-        epoch_steps = 0
+        epoch_eps = 0
 
-        for ep in episodes:
-            xs = torch.from_numpy(ep["xs"])
-            actions = torch.from_numpy(ep["actions"]).float()
-            disc_r = ep["discounted_rewards"].copy()
-            disc_r -= disc_r.mean()
-            std = disc_r.std()
-            if std > 0:
-                disc_r /= std
-            disc_tensor = torch.from_numpy(disc_r.astype(np.float32))
+        for bf in files:
+            avg_loss, ep_count = train_on_batch_file(bf, model, optimizer, filter_fn)
+            epoch_loss += avg_loss * ep_count
+            epoch_eps += ep_count
 
-            # batch forward + backward
-            probs = model(xs).squeeze()
-            log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
-            loss = -(log_prob * disc_tensor).sum()
-
-            optimizer.zero_grad()
-            loss.backward()
-            nn.utils.clip_grad_norm_(model.parameters(), 0.5)
-            optimizer.step()
-
-            epoch_loss += loss.item()
-            epoch_steps += len(ep["xs"])
-
-        avg_loss = epoch_loss / len(episodes)
-        print(f"  epoch {epoch+1}/{max_epochs} | avg_loss: {avg_loss:.2f} | steps: {epoch_steps:,}")
-        csv_writer.writerow([epoch+1, avg_loss, epoch_steps])
+        avg = epoch_loss / max(epoch_eps, 1)
+        print(f"  epoch {epoch+1}/{max_epochs} | avg_loss: {avg:.2f} | episodes: {epoch_eps}")
+        csv_writer.writerow([epoch+1, avg, epoch_eps])
 
     return model
 
