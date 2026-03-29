@@ -27,7 +27,7 @@ class PongPolicy(nn.Module):
         return torch.sigmoid(self.fc2(torch.relu(self.fc1(x))))
 
 
-def get_batch_files(last_n=50):
+def get_batch_files(last_n=10):
     """Return sorted list of batch file paths. Only use last_n files to keep it manageable."""
     all_files = sorted([
         os.path.join(REPLAY_DIR, f)
