@@ -1,0 +1,18 @@
+=== Exp3: Shuffled episodes (no curriculum) ===
+Using first 5 of 247 batch files (~500 episodes)
+[shuffled_ep] 5 batch files, 5 epochs
+  epoch 1/5 | avg_loss: -0.00 | episodes: 500
+  epoch 2/5 | avg_loss: -0.02 | episodes: 500
+  epoch 3/5 | avg_loss: -0.10 | episodes: 500
+  epoch 4/5 | avg_loss: -0.30 | episodes: 500
+  epoch 5/5 | avg_loss: -0.58 | episodes: 500
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+  eval 10/50 | mean: -20.40
+  eval 20/50 | mean: -20.30
+  eval 30/50 | mean: -20.17
+  eval 40/50 | mean: -20.30
+  eval 50/50 | mean: -20.26
+  EVAL RESULT: mean=-20.26, std=1.00
+
+FINAL: mean_reward = -20.26
