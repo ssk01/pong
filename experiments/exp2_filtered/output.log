@@ -1,16 +1,16 @@
 === Exp2: Filtered (reward > -18 only) ===
-Using first 5 of 247 batch files (~500 episodes)
-[filtered] 5 batch files, 3 epochs
-  epoch 1/3 | avg_loss: 0.00 | episodes: 2
-  epoch 2/3 | avg_loss: -0.02 | episodes: 2
-  epoch 3/3 | avg_loss: -0.02 | episodes: 2
+Using all 247 batch files (24700 episodes)
+[filtered] 247 batch files, 3 epochs
+  epoch 1/3 | avg_loss: -0.02 | episodes: 17996
+  epoch 2/3 | avg_loss: -0.07 | episodes: 17996
+  epoch 3/3 | avg_loss: -0.15 | episodes: 17996
 A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
 [Powered by Stella]
-  eval 10/50 | mean: -19.90
-  eval 20/50 | mean: -20.30
-  eval 30/50 | mean: -20.33
-  eval 40/50 | mean: -20.40
-  eval 50/50 | mean: -20.38
-  EVAL RESULT: mean=-20.38, std=0.94
+  eval 10/50 | mean: -21.00
+  eval 20/50 | mean: -20.80
+  eval 30/50 | mean: -20.87
+  eval 40/50 | mean: -20.90
+  eval 50/50 | mean: -20.90
+  EVAL RESULT: mean=-20.90, std=0.57
 
-FINAL: mean_reward = -20.38
+FINAL: mean_reward = -20.90

@@ -70,14 +70,19 @@ def iter_episodes_from_batch(batch_path):
 MAX_SAMPLE_STEPS = 4096  # sample at most this many steps per batch file
 
 
-def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
-    """Train on one batch file. Samples MAX_SAMPLE_STEPS random steps to control memory."""
+def train_on_batch_file(batch_path, model, optimizer, filter_fn=None, loss_type="pg"):
+    """Train on one batch file. Samples MAX_SAMPLE_STEPS random steps to control memory.
+
+    loss_type options:
+        "pg"       - REINFORCE: -log π(a|s) × R  (on-policy, wrong for offline)
+        "bc"       - Behavior Cloning: cross-entropy on expert actions
+        "weighted" - Weighted BC: cross-entropy × normalized reward
+    """
     data = np.load(batch_path)
     num_steps = data["num_steps"]
     total_rewards = data["total_rewards"]
     total_steps_in_file = int(num_steps.sum())
 
-    # figure out which episodes to include
     offsets = np.concatenate([[0], np.cumsum(num_steps)])
     include_mask = np.ones(len(num_steps), dtype=bool)
     if filter_fn:
@@ -85,8 +90,8 @@ def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
             if not filter_fn({"total_reward": float(total_rewards[i])}):
                 include_mask[i] = False
 
-    # precompute discounted rewards for included episodes
-    all_disc = np.zeros(total_steps_in_file, dtype=np.float32)
+    # precompute per-step weights based on loss_type
+    all_weights = np.zeros(total_steps_in_file, dtype=np.float32)
     ep_count = 0
     included_step_mask = np.zeros(total_steps_in_file, dtype=bool)
 
@@ -97,46 +102,54 @@ def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
         included_step_mask[start:end] = True
         ep_count += 1
 
-        rewards = np.array(data["all_rewards"][start:end])
-        running = 0.0
-        for t in reversed(range(len(rewards))):
-            if rewards[t] != 0:
-                running = 0.0
-            running = running * 0.99 + rewards[t]
-            all_disc[start + t] = running
-
-        chunk = all_disc[start:end]
-        chunk -= chunk.mean()
-        std = chunk.std()
-        if std > 0:
-            chunk /= std
-        all_disc[start:end] = chunk
+        if loss_type == "pg":
+            rewards = np.array(data["all_rewards"][start:end])
+            running = 0.0
+            for t in reversed(range(len(rewards))):
+                if rewards[t] != 0:
+                    running = 0.0
+                running = running * 0.99 + rewards[t]
+                all_weights[start + t] = running
+            chunk = all_weights[start:end]
+            chunk -= chunk.mean()
+            std = chunk.std()
+            if std > 0:
+                chunk /= std
+            all_weights[start:end] = chunk
+        elif loss_type == "bc":
+            all_weights[start:end] = 1.0
+        elif loss_type == "weighted":
+            # weight by episode reward (normalized to 0-1 range)
+            w = (float(total_rewards[i]) + 21.0) / 26.0  # -21→0, +5→1
+            all_weights[start:end] = max(w, 0.01)  # floor to avoid zero
 
     if ep_count == 0:
         del data
         return 0.0, 0
 
-    # get all included step indices, then random sample
     included_indices = np.where(included_step_mask)[0]
     if len(included_indices) > MAX_SAMPLE_STEPS:
         sample_idx = np.random.choice(included_indices, MAX_SAMPLE_STEPS, replace=False)
     else:
         sample_idx = included_indices
-
     np.random.shuffle(sample_idx)
 
-    # load only sampled steps into memory
     xs = torch.from_numpy(np.array(data["all_xs"][sample_idx], dtype=np.float32))
     actions = torch.from_numpy(np.array(data["all_actions"][sample_idx])).float()
-    disc_tensor = torch.from_numpy(all_disc[sample_idx])
+    weights = torch.from_numpy(all_weights[sample_idx])
 
     del data
     gc.collect()
 
-    # single forward + backward on sampled steps
     probs = model(xs).squeeze()
-    log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
-    loss = -(log_prob * disc_tensor).mean()
+
+    if loss_type == "pg":
+        log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
+        loss = -(log_prob * weights).mean()
+    else:
+        # BC / weighted BC: cross-entropy loss
+        bce = -(actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8))
+        loss = (bce * weights).mean()
 
     optimizer.zero_grad()
     loss.backward()
@@ -147,10 +160,10 @@ def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
 
 
 def train_streaming(model, optimizer, csv_writer, max_epochs=3, label="",
-                    batch_order_fn=None, filter_fn=None):
+                    batch_order_fn=None, filter_fn=None, loss_type="pg"):
     """Train model by streaming through batch files. Never loads all data at once."""
     batch_files = get_batch_files()
-    print(f"[{label}] {len(batch_files)} batch files, {max_epochs} epochs")
+    print(f"[{label}] {len(batch_files)} batch files, {max_epochs} epochs, loss={loss_type}")
 
     for epoch in range(max_epochs):
         files = list(batch_files)
@@ -161,12 +174,12 @@ def train_streaming(model, optimizer, csv_writer, max_epochs=3, label="",
         epoch_eps = 0
 
         for bf in files:
-            avg_loss, ep_count = train_on_batch_file(bf, model, optimizer, filter_fn)
+            avg_loss, ep_count = train_on_batch_file(bf, model, optimizer, filter_fn, loss_type=loss_type)
             epoch_loss += avg_loss * ep_count
             epoch_eps += ep_count
 
         avg = epoch_loss / max(epoch_eps, 1)
-        print(f"  epoch {epoch+1}/{max_epochs} | avg_loss: {avg:.2f} | episodes: {epoch_eps}")
+        print(f"  epoch {epoch+1}/{max_epochs} | avg_loss: {avg:.4f} | episodes: {epoch_eps}")
         csv_writer.writerow([epoch+1, avg, epoch_eps])
         gc.collect()
 

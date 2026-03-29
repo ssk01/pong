@@ -1,18 +1,18 @@
 === Exp3: Shuffled episodes (no curriculum) ===
-Using first 5 of 247 batch files (~500 episodes)
-[shuffled_ep] 5 batch files, 5 epochs
-  epoch 1/5 | avg_loss: -0.00 | episodes: 500
-  epoch 2/5 | avg_loss: -0.02 | episodes: 500
-  epoch 3/5 | avg_loss: -0.12 | episodes: 500
-  epoch 4/5 | avg_loss: -0.32 | episodes: 500
-  epoch 5/5 | avg_loss: -0.57 | episodes: 500
+Using all 247 batch files (24700 episodes)
+[shuffled_ep] 247 batch files, 5 epochs
+  epoch 1/5 | avg_loss: -0.01 | episodes: 24700
+  epoch 2/5 | avg_loss: -0.05 | episodes: 24700
+  epoch 3/5 | avg_loss: -0.13 | episodes: 24700
+  epoch 4/5 | avg_loss: -0.23 | episodes: 24700
+  epoch 5/5 | avg_loss: -0.35 | episodes: 24700
 A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
 [Powered by Stella]
-  eval 10/50 | mean: -18.90
-  eval 20/50 | mean: -19.30
-  eval 30/50 | mean: -19.17
-  eval 40/50 | mean: -19.00
-  eval 50/50 | mean: -19.06
-  EVAL RESULT: mean=-19.06, std=1.68
+  eval 10/50 | mean: -20.80
+  eval 20/50 | mean: -20.90
+  eval 30/50 | mean: -20.87
+  eval 40/50 | mean: -20.73
+  eval 50/50 | mean: -20.76
+  EVAL RESULT: mean=-20.76, std=0.65
 
-FINAL: mean_reward = -19.06
+FINAL: mean_reward = -20.76

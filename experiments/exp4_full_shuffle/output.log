@@ -1,18 +1,3 @@
-Using first 5 of 247 batch files (~500 episodes)
+Using all 247 batch files (24700 episodes)
 === Exp4: Fully shuffled steps (experience replay) ===
-5 batch files
-  epoch 1/5 | avg_loss: -0.0018 | mini_batches: 256
-  epoch 2/5 | avg_loss: -0.0151 | mini_batches: 256
-  epoch 3/5 | avg_loss: -0.0753 | mini_batches: 256
-  epoch 4/5 | avg_loss: -0.2279 | mini_batches: 256
-  epoch 5/5 | avg_loss: -0.4545 | mini_batches: 256
-A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
-[Powered by Stella]
-  eval 10/50 | mean: -21.00
-  eval 20/50 | mean: -20.95
-  eval 30/50 | mean: -20.93
-  eval 40/50 | mean: -20.95
-  eval 50/50 | mean: -20.96
-  EVAL RESULT: mean=-20.96, std=0.20
-
-FINAL: mean_reward = -20.96
+247 batch files
