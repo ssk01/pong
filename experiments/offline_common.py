@@ -27,16 +27,14 @@ class PongPolicy(nn.Module):
         return torch.sigmoid(self.fc2(torch.relu(self.fc1(x))))
 
 
-def get_batch_files(first_n=5):
-    """Return sorted list of batch file paths. Use first_n files (early batches are smaller)."""
+def get_batch_files():
+    """Return all batch file paths sorted."""
     all_files = sorted([
         os.path.join(REPLAY_DIR, f)
         for f in os.listdir(REPLAY_DIR)
         if f.startswith("batch_") and f.endswith(".npz")
     ])
-    if first_n and first_n < len(all_files):
-        print(f"Using first {first_n} of {len(all_files)} batch files (~{first_n*100} episodes)")
-        return all_files[:first_n]
+    print(f"Using all {len(all_files)} batch files ({len(all_files)*100} episodes)")
     return all_files
 
 
@@ -69,14 +67,15 @@ def iter_episodes_from_batch(batch_path):
     gc.collect()
 
 
-MINI_BATCH = 2048
+MAX_SAMPLE_STEPS = 4096  # sample at most this many steps per batch file
 
 
 def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
-    """Train on one batch file using mini-batches of raw steps. Fast."""
+    """Train on one batch file. Samples MAX_SAMPLE_STEPS random steps to control memory."""
     data = np.load(batch_path)
     num_steps = data["num_steps"]
     total_rewards = data["total_rewards"]
+    total_steps_in_file = int(num_steps.sum())
 
     # figure out which episodes to include
     offsets = np.concatenate([[0], np.cumsum(num_steps)])
@@ -86,66 +85,65 @@ def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
             if not filter_fn({"total_reward": float(total_rewards[i])}):
                 include_mask[i] = False
 
-    # collect indices of included steps
-    step_indices = []
-    disc_values = []
+    # precompute discounted rewards for included episodes
+    all_disc = np.zeros(total_steps_in_file, dtype=np.float32)
+    ep_count = 0
+    included_step_mask = np.zeros(total_steps_in_file, dtype=bool)
+
     for i in range(len(num_steps)):
         if not include_mask[i]:
             continue
         start, end = int(offsets[i]), int(offsets[i+1])
-        step_indices.append(np.arange(start, end))
-        # compute discounted rewards for this episode
+        included_step_mask[start:end] = True
+        ep_count += 1
+
         rewards = np.array(data["all_rewards"][start:end])
-        disc_r = np.zeros_like(rewards)
         running = 0.0
         for t in reversed(range(len(rewards))):
             if rewards[t] != 0:
                 running = 0.0
             running = running * 0.99 + rewards[t]
-            disc_r[t] = running
-        disc_r -= disc_r.mean()
-        std = disc_r.std()
-        if std > 0:
-            disc_r /= std
-        disc_values.append(disc_r)
+            all_disc[start + t] = running
 
-    if not step_indices:
+        chunk = all_disc[start:end]
+        chunk -= chunk.mean()
+        std = chunk.std()
+        if std > 0:
+            chunk /= std
+        all_disc[start:end] = chunk
+
+    if ep_count == 0:
         del data
         return 0.0, 0
 
-    all_indices = np.concatenate(step_indices)
-    all_disc = np.concatenate(disc_values).astype(np.float32)
-    ep_count = int(include_mask.sum())
-    total = len(all_indices)
+    # get all included step indices, then random sample
+    included_indices = np.where(included_step_mask)[0]
+    if len(included_indices) > MAX_SAMPLE_STEPS:
+        sample_idx = np.random.choice(included_indices, MAX_SAMPLE_STEPS, replace=False)
+    else:
+        sample_idx = included_indices
 
-    # shuffle and train in mini-batches
-    perm = np.random.permutation(total)
-    total_loss = 0.0
-    n_batches = 0
+    np.random.shuffle(sample_idx)
 
-    for start in range(0, total, MINI_BATCH):
-        idx = perm[start:start + MINI_BATCH]
-        raw_idx = all_indices[idx]
-
-        xs = torch.from_numpy(np.array(data["all_xs"][raw_idx], dtype=np.float32))
-        actions = torch.from_numpy(np.array(data["all_actions"][raw_idx])).float()
-        disc_tensor = torch.from_numpy(all_disc[idx])
-
-        probs = model(xs).squeeze()
-        log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
-        loss = -(log_prob * disc_tensor).mean()
-
-        optimizer.zero_grad()
-        loss.backward()
-        nn.utils.clip_grad_norm_(model.parameters(), 0.5)
-        optimizer.step()
-
-        total_loss += loss.item()
-        n_batches += 1
+    # load only sampled steps into memory
+    xs = torch.from_numpy(np.array(data["all_xs"][sample_idx], dtype=np.float32))
+    actions = torch.from_numpy(np.array(data["all_actions"][sample_idx])).float()
+    disc_tensor = torch.from_numpy(all_disc[sample_idx])
 
     del data
     gc.collect()
-    return total_loss / max(n_batches, 1), ep_count
+
+    # single forward + backward on sampled steps
+    probs = model(xs).squeeze()
+    log_prob = actions * torch.log(probs + 1e-8) + (1 - actions) * torch.log(1 - probs + 1e-8)
+    loss = -(log_prob * disc_tensor).mean()
+
+    optimizer.zero_grad()
+    loss.backward()
+    nn.utils.clip_grad_norm_(model.parameters(), 0.5)
+    optimizer.step()
+
+    return loss.item(), ep_count
 
 
 def train_streaming(model, optimizer, csv_writer, max_epochs=3, label="",
