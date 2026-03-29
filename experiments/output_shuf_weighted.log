@@ -1,0 +1,12 @@
+Using all 247 batch files (24700 episodes)
+[shuf_weighted] 247 batch files, 3 epochs, loss=weighted
+  epoch 1/3 | avg_loss: 0.2744 | episodes: 24700
+  epoch 2/3 | avg_loss: 0.2315 | episodes: 24700
+  epoch 3/3 | avg_loss: 0.2195 | episodes: 24700
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+  eval 10/30 | mean: -14.90
+  eval 20/30 | mean: -13.45
+  eval 30/30 | mean: -13.70
+  EVAL RESULT: mean=-13.70, std=4.36
+FINAL: shuf_weighted | reward=-13.70 | time=1776s

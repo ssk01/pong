@@ -1,0 +1,8 @@
+
+============================================================
+EXPERIMENT: seq_pg | loss=pg | shuffle=False | filter=no
+============================================================
+Using all 247 batch files (24700 episodes)
+[seq_pg] 247 batch files, 3 epochs, loss=pg
+  epoch 1/3 | avg_loss: -0.0133 | episodes: 24700
+  epoch 2/3 | avg_loss: -0.0512 | episodes: 24700

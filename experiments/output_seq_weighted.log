@@ -1,0 +1,12 @@
+Using all 247 batch files (24700 episodes)
+[seq_weighted] 247 batch files, 3 epochs, loss=weighted
+  epoch 1/3 | avg_loss: 0.2282 | episodes: 24700
+  epoch 2/3 | avg_loss: 0.2138 | episodes: 24700
+  epoch 3/3 | avg_loss: 0.2109 | episodes: 24700
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+  eval 10/30 | mean: -9.90
+  eval 20/30 | mean: -11.25
+  eval 30/30 | mean: -10.50
+  EVAL RESULT: mean=-10.50, std=5.57
+FINAL: seq_weighted | reward=-10.50 | time=1778s
