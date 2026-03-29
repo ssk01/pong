@@ -47,26 +47,26 @@ def load_index():
 
 
 def iter_episodes_from_batch(batch_path):
-    """Yield episodes one by one from a single batch file. Memory efficient."""
-    data = np.load(batch_path)
-    ep_ids = data["episode_ids"]
-    rewards = data["total_rewards"]
-    num_steps = data["num_steps"]
-    all_xs = data["all_xs"]
-    all_actions = data["all_actions"]
-    all_discounted = data["all_discounted"]
+    """Yield episodes one by one from a single batch file. Uses mmap to avoid loading all into RAM."""
+    data = np.load(batch_path, mmap_mode='r')
+    ep_ids = np.array(data["episode_ids"])
+    rewards = np.array(data["total_rewards"])
+    num_steps = np.array(data["num_steps"])
 
     offset = 0
     for i in range(len(ep_ids)):
-        n = num_steps[i]
+        n = int(num_steps[i])
+        # copy slices to regular arrays (mmap slices are read-only)
         yield {
             "episode_id": int(ep_ids[i]),
             "total_reward": float(rewards[i]),
-            "xs": all_xs[offset:offset+n].astype(np.float32),
-            "actions": all_actions[offset:offset+n],
-            "discounted_rewards": all_discounted[offset:offset+n],
+            "xs": np.array(data["all_xs"][offset:offset+n], dtype=np.float32),
+            "actions": np.array(data["all_actions"][offset:offset+n]),
+            "discounted_rewards": np.array(data["all_discounted"][offset:offset+n]),
         }
         offset += n
+    del data
+    gc.collect()
 
 
 def train_on_batch_file(batch_path, model, optimizer, filter_fn=None):
