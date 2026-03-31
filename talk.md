@@ -198,8 +198,28 @@ pong/
 │   ├── ppo/train.py        # PPO 实现
 │   ├── run_all_offline.py  # 离线实验统一脚本
 │   └── offline_common.py   # 共用模块（3 种 loss）
+├── viz_weights.py          # W1 权重可视化脚本
 ├── replay_data/            # 24700 局样本（2.2GB）
 ├── talk.md                 # 本文件
 ├── experiments.md          # 实验计划
 └── README.md               # 项目说明
 ```
+
+---
+
+## 权重可视化
+
+使用 recorder 模型（`save_torch_rec.pt`，训练到 +5.09 @ 24720 局）的 W1 权重生成。
+
+W1 形状 `(200, 6400)`：200 个隐藏层神经元，每个有 6400 个权重对应 80×80 差分帧的每个像素。将每行 reshape 为 80×80 即可看到该神经元的"感受野"。
+
+按权重方差降序排列展示前 40 个神经元（方差大 = 学到了明确的空间模式）。
+
+观察：
+- 多个神经元学到了**球运动轨迹**（斜线上的黑白交替点）
+- 左右侧竖向结构对应**挡板位置检测**
+- 交替黑白是因为差分帧中球的新位置为正、旧位置为负
+
+生成命令：`python viz_weights.py`
+
+见 [weights_viz.png](weights_viz.png)
